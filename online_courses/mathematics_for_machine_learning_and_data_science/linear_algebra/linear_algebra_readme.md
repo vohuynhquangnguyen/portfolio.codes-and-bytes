@@ -14,28 +14,41 @@ The structure of this folder is as follows:
 - `notes`: this is where the notes taken during these courses are located.
 
 ### [Linear Algebra by deeplearng.ai](https://www.coursera.org/learn/machine-learning-linear-algebra/home/)
-1. Assignments
-2. Slides
+|           | Assignments | Slides
+|-----------|-------------|
+| Week 1    |             |
+| Week 2    |             |
+| Week 3    |             |
+| Week 4    |             |
+| Week 5    |             |
 
 ### MS-A001 Matrix Algebra and MS-C1342 Linear Algebra by Aalto University
-|           | Exercise |
-|-----------|----------|
-| Week 1    |          |
-| Week 2    |          |
-| Week 3    |          |
-| Week 4    |          |
-| Week 5    |          |
+|           | Assignments |
+|-----------|-------------|
+| Week 1    |             |
+| Week 2    |             |
+| Week 3    |             |
+| Week 4    |             |
+| Week 5    |             |
 
 
 ### Linear Algebra by Jim Hefferon
 Note: only selected exercises in the textbook are solved.
-|           | Exercise |
-|-----------|----------|
-| Chapter 1 |          |
+|           | Assignments |
+|-----------|-------------|
+| Week 1    |             |
+| Week 2    |             |
+| Week 3    |             |
+| Week 4    |             |
+| Week 5    |             |
 
 
 ### **Mathematics for Machine Learning** by Marc Peter Deisenroth, A. Aldo Faisal, and Cheng Soon Ong
 Note: only selected exercises in the textbook are solved.
-|           | Exercise |
-|-----------|----------|
-| Chapter 1 |          |
+|           | Assignments |
+|-----------|-------------|
+| Week 1    |             |
+| Week 2    |             |
+| Week 3    |             |
+| Week 4    |             |
+| Week 5    |             |
