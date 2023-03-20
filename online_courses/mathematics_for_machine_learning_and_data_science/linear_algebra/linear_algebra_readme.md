@@ -18,6 +18,14 @@ The structure of this folder is as follows:
 2. Slides
 
 ### MS-A001 Matrix Algebra and MS-C1342 Linear Algebra by Aalto University
+|           | Exercise |
+|-----------|----------|
+| Week 1    |          |
+| Week 2    |          |
+| Week 3    |          |
+| Week 4    |          |
+| Week 5    |          |
+
 
 ### Linear Algebra by Jim Hefferon
 Note: only selected exercises in the textbook are solved.
