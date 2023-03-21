@@ -14,7 +14,7 @@ The structure of this folder is as follows:
 - `notes`: this is where the notes taken during these courses are located.
 
 ### [Linear Algebra by deeplearng.ai](https://www.coursera.org/learn/machine-learning-linear-algebra/home/)
-|           | Assignments | Slides
+|           | Assignments | Slides |
 |-----------|-------------|
 | Week 1    |             |
 | Week 2    |             |
