@@ -1,0 +1,164 @@
+﻿//!
+/*
+
+Gauge Study Design.jsl
+09Sep2014
+
+20Jul2018: ian.cox@jmp.com - Minor UI changes for Mia.
+10Jul2020: Yusuke.Ono@jmp.com - Fix a problem on non-English JMP
+
+Copyright (c) 2014 by SAS Institute Inc., Cary, NC 27513, USA. All rights reserved.
+
+Note: please read the disclaimer at the end of this script.
+
+Purpose
+Gauge study design worksheet
+
+Features
+	- ability to create worksheet for unlimited factors
+	- randomization of factor levels within other factors
+
+Author
+Di Michelson (SAS Institute)
+
+Contact
+di.michelson@sas.com
+
+Usage
+Simply run this script by any one of these methods:
+
+	Edit > Run Script
+	Control-R
+	Click "Run Script" button in tool bar
+
+Future Improvement Ideas
+	None at this time.
+
+*/
+
+//expression for clicking the Create Worksheet button
+exprGo = Expr(
+	numRows = 1;  // product of number of levels of all factors
+	prodSets = 1; // product of number of levels up to the current factor
+	factorValues2 = List(); // holds values of randomized factors
+	
+	If( numFactors == 0,
+		Throw( "Need at least one factor." ), 
+		For( iItem = 1, iItem <= numFactors, iItem++,
+			numRows = numRows * (nebLevels[iItem] << get)
+		);
+		dtDesign = New Table( "Gauge Study Worksheet" );
+		dtDesign << add rows( numRows );
+	
+		For( iCol = 1, iCol <= numFactors, iCol++,
+			prodSets = prodSets * (nebLevels[iCol] << get);
+			numSets = numRows / prodSets;
+			If( chkRandom[iCol] << get, 
+//randomize	
+				prodN1 = 1;
+				For( ii = iCol + 1, ii <= numFactors, ii++,
+					prodN1 = prodN1 * (nebLevels[ii] << get)
+				);
+				prodN2 = 1;
+				For( ii = 1, ii <= iCol - 1, ii++,
+					prodN2 = prodN2 * (nebLevels[ii] << get)
+				);
+				iValue = 0;
+				For( kk = 1, kk <= prodN2, kk++,
+					factorValues1 = Random Shuffle( Index( 1, nebLevels[iCol] << get ) );
+					For( ii = 1, ii <= N Cols( factorValues1 ), ii++,
+						For( jj = 1, jj <= prodN1, jj++,
+							iValue++;
+							factorValues2[iValue] = factorValues1[ii];
+						)
+					);
+				);
+				dtDesign << New Column( tebNames[iCol] << get text, numeric, nominal, set values( factorValues2 ) );
+			, 
+//no randomize
+				dtDesign << New Column( tebNames[iCol] << get text, numeric, nominal,
+					formula( Sequence( 1, nebLevels[iCol] << get, 1, numSets ) )
+				);
+				Column( dtDesign, tebNames[iCol] << get text ) << delete formula;
+			);
+		);
+		dtDesign << delete columns(Column(1)); /* Modified by Yusuke Ono 20Jul2020 */
+		dtDesign << New Column( "Response", numeric, continuous );
+		dtDesign << New Column( "Run Order", numeric, nominal, set values( 1 :: N Row( dtDesign ) ) );
+		Column( dtDesign, "Run Order" ) << set selected( 1 );
+		dtDesign << move selected columns( to first ) << clear column selection;
+	);
+);
+
+tebNames = List(); 	//factor names
+sb1 = List();		// First spacer box spacers
+nebLevels = List(); //number of levels
+sb2 = List();		// Second spacer box spacers
+chkRandom = List(); //checkbox for randomization
+numFactors = 1; 	//number of factors
+nwDialog = New Window( "Measurement System Study Design",
+	tb1 = Text Box( " Measurement System Study Design", << setWrap(700)),
+	spacerBox(Size(10, 10)),
+	tb2 = Text Box(
+		"   To design your measurement system study:\!N\!N   1. Edit the factor name (for example, 'Instrument', 'Inspector', 'Part').\!N   2. Edit the number of levels.\!N   3. Click 'Add Factor' to add an additional factor, and repeat Steps 1 and 2 above.\!N   4. Use the 'Randomize?' checkbox to randomize the factor within the levels of the factor above it.\!N   5. Click 'Create Worksheet' to create the worksheet for the study.",
+		<< fontColor("Blue"), << setWrap(700)
+	),
+	spacerBox(Size(10, 30)),
+	Panel Box("Define Factors",
+		lb1 = Lineup Box( N Col( 5 ),
+			Text Box( "Factor Name" ),
+			spacerBox(Size(30, 10)),
+			Text Box( "Number of Levels" ),
+			spacerBox(Size(30, 10)),
+			Text Box( "Randomize?   " ),
+			tebNames[1] = Text Edit Box( "Factor 1" ),
+			sb1[1] = spacerBox(Size(30, 10)),
+			nebLevels[1] = Number Edit Box( 3 ),
+			sb2[1] = spacerBox(Size(30, 10)),
+			chkRandom[1] = Check Box( "" )
+		),
+		spacerBox(Size(30, 10)),
+		H List Box(
+			buttonAddFactor = Button Box( "Add Factor",
+				numFactors++;
+				lb1 << append( tebNames[numFactors] = Text Edit Box( "Factor " || Char( numFactors ) ) ) << append(sb1[numFactors] = spacerBox(Size(30, 10))) <<
+				append( nebLevels[numFactors] = Number Edit Box( 3 ) ) << append(sb2[numFactors] = spacerBox(Size(30, 10))) << append( chkRandom[numFactors] = Check Box( "" ) );
+			)),
+			H List Box(
+			buttonRemoveFactor = Button Box( "Remove Last Factor",
+				tebNames[numFactors] << delete;
+				sb1[numFactors] << delete; 
+				nebLevels[numFactors] << delete;
+				sb2[numFactors] << delete;
+				chkRandom[numFactors] << delete;
+				numFactors--;
+			)
+		)
+	),
+	spacerBox(size(10, 20)),
+	buttonGo = Button Box( "Create Worksheet", exprGo )
+);
+tb1 << set font style( "Bold Italic" ) << set font size( 24 );
+
+/*
+Revision History (date, change, person)
+09Sep2014, created, Di Michelson
+*/
+
+/*
+Disclaimer by 
+SAS Institute Inc. 
+
+License Agreement for Corrective Code or 
+Additional Functionality 
+
+SAS INSTITUTE INC. IS PROVIDING YOU WITH THE COMPUTER SOFTWARE CODE INCLUDED WITH THIS AGREEMENT ("CODE") ON AN "AS IS" BASIS, AND AUTHORIZES YOU TO USE THE CODE SUBJECT TO THE TERMS HEREOF.  BY USING THE CODE, YOU AGREE TO THESE TERMS.  YOUR USE OF THE CODE IS AT YOUR OWN RISK.  SAS INSTITUTE INC. MAKES NO REPRESENTATION OR WARRANTY, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NONINFRINGEMENT AND TITLE, WITH RESPECT TO THE CODE. 
+
+The Code is intended to be used solely as part of a product ("Software") you currently have licensed from SAS or one of its subsidiaries or authorized agents ("SAS"). The Code is designed to either correct an error in the Software or to add functionality to the Software, but has not necessarily been tested.  Accordingly, SAS makes no representation or warranty that the Code will operate error-free.  SAS is under no obligation to maintain or support the Code.
+
+Neither SAS nor its licensors shall be liable to you or any third party for any general, special, direct, indirect, consequential, incidental or other damages whatsoever arising out of or related to your use or inability to use the Code, even if SAS has been advised of the possibility of such damages.
+
+Except as otherwise provided above, the Code is governed by the same agreement that governs the Software.  If you do not have an existing agreement with SAS governing the Software, you may not use the Code. 
+
+(SAS and all other SAS Institute Inc. product or service names are registered trademarks or trademarks of SAS Institute Inc. in the USA and other countries. ® indicates USA registration. Other brand and product names are registered trademarks or trademarks of their respective companies.)
+*/
