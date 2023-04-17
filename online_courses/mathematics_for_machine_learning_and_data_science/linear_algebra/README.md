@@ -4,6 +4,7 @@ This folder contains lecture notes as well as solutions to exercises of what I h
 1. Only the topics in linear algebra that is applicable for Machine Learning and Data Science are included in this folder.
 2. The contents are based on:
     * The [Linear Algebra course](https://www.coursera.org/learn/machine-learning-linear-algebra/home/) offered by deeplearning.ai in Coursera.
+    * The [Mathematics for Machine Learning: Linear Algebra](https://www.coursera.org/learn/linear-algebra-machine-learning/) and [Mathematics for Machine Learning: PCA]() courses offered by Imperial College London in Coursera.
     * The two courses **MS-A001 Matrix Algebra** and **MS-C1342 Linear Algebra** taught at Aalto University, Finland.
     * The two textbooks **Linear Algebra** by Jim Hefferon and **Mathematics for Machine Learning** by Marc Peter Deisenroth, A. Aldo Faisal, and Cheng Soon Ong.
 
@@ -15,7 +16,7 @@ The structure of this folder is as follows:
 
 ### [Linear Algebra by deeplearng.ai](https://www.coursera.org/learn/machine-learning-linear-algebra/home/)
 |           | Assignments | Slides |
-|-----------|-------------|
+|-----------|-------------|--------|
 | Week 1    |             |
 | Week 2    |             |
 | Week 3    |             |
