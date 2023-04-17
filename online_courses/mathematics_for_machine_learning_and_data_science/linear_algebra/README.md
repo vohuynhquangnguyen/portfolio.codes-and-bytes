@@ -1,6 +1,6 @@
 # Linear Algebra for Machine Learning and Data Science
 ## Introduction
-This folder contains lecture notes as well as solutions to exercises of what I have learnt about linear algebra:
+This folder contains lecture notes as well as solutions to exercises of what I have learnt about linear algebra during my own self-learning of this subject. Here are some disclaimers:
 1. Only the topics in linear algebra that is applicable for Machine Learning and Data Science are included in this folder.
 2. The contents are based on:
     * The [Linear Algebra course](https://www.coursera.org/learn/machine-learning-linear-algebra/home/) offered by deeplearning.ai in Coursera.
