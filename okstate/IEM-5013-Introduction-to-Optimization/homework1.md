@@ -27,11 +27,10 @@ meets its needs.
 
 ***
 **Answer:**
-In this scenario,
-  * The decision variables are the amount of warehouse spaces the company would lease each month. In other words, they are $x_1, x_2, x_3, x_4, x_5$ or $\{x_i, i = 1, 2, ..., 5\}$, and these variables must be non negative.
-  * The task is figuring out the optimial combination of leases that meets its needs. In other words, the total cost of leasing - which is expressed as the following function: $65x_1 +  100x_2 +  135x_3 + 160x_4 + 190x_5$ - has to be optimized.
-  * 
-
+1. In this scenario:
+  * Decision variables: $x_{i,j}$ the number of $j$ leasing months starting from month $i$.
+  * Objective function: we need to minimize the leasing cost:
+    * 65x_{1,1} + 100x_{1,2} 
 
 ### Problem 2
 A round-the-clock manufacturing company has minimal daily requirements for
