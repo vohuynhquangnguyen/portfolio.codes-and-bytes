@@ -30,7 +30,7 @@ meets its needs.
 1. In this scenario:
   * Decision variables: $x_{i,j}$ the number of $j$ leasing months starting from month $i$.
   * Objective function: we need to minimize the leasing cost:
-    * 65x_{1,1} + 100x_{1,2} 
+    * $65x_{1,1} + 100x_{1,2} 
 
 ### Problem 2
 A round-the-clock manufacturing company has minimal daily requirements for
