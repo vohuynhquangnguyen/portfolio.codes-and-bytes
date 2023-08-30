@@ -35,19 +35,17 @@ In this guide, we are only concerned with Python distribution. There are two pri
 | When installing packages, a solver is run to ensure all requirements of all packages installed in an environment are met. | When installing packages, no effort is made to ensure that the dependencies of all packages are fulfilled simultaneously. |
 
 In this guide, we will use the Anaconda distribution to set up our Python and link Anaconda with Visual Studio Code. The steps are as follows:
-1. [Install Anaconda as normal.](https://www.anaconda.com/)
+1. [Install Anaconda as normal.](https://www.anaconda.com/) Remeber to select the **All Users (requires admin privileges)** option at the **Install for** section during the installation.
 2. Open `Edit the system environment variables`>`Environment variables`. On the `System variables` section, click `Path` and then add the following paths
 ```        
-C:\ProgramData\Anaconda3\Scripts`
-```       
-```
+C:\ProgramData\Anaconda3\Scripts
 C:\ProgramData\Anaconda3\Library\bin
 ```       
-3. Open `Windows Powershell`(remember to run this program with the **Run as Administrators** option), and use the command `Set-ExecutionPolicy RemoteSigned` to change the Powershell Execution Policy to Remote Signed.
+3. Open `Windows Powershell`(remember to run this program with the **Run as Administrators** option), and use the command `Set-ExecutionPolicy RemoteSigned` to change the Powershell execution policy to remote signed.
     
-4. Open Anaconda Prompt (Run as Administrators) and run the command `conda init powershell` to add conda-related startup to a Powershell profile.
+4. Open `Anaconda Prompt` (remember to run this program with the **Run as Administrators** option) and run the command `conda init powershell` to add conda-related startup to a Powershell profile.
 
 5. To remove unused kernels in Anaconda.
-    1. Go to Anaconda Prompt.
+    1. Go to `Anaconda Prompt`.
     2. Run `jupyter kernelspec list` to get the paths of all installed kernels.
     3. Uninstall unwanted kernel with the following command: `jupyter kernelspec uninstall <unwanted-kernel>`
