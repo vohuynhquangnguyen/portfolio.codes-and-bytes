@@ -4,7 +4,7 @@
 
 ***
 
-# 1. Python Setup
+## 1. Python Setup
 First, we must understand what an IDE means. So, what is an IDE? 
 1. An **integrated development environment** (IDE) is software for building applications that combine common developer tools into a single graphical user interface (GUI). 
 2. An IDE typically consists of:
@@ -37,33 +37,17 @@ In this guide, we are only concerned with Python distribution. There are two pri
 In this guide, we will use the Anaconda distribution to set up our Python and link Anaconda with Visual Studio Code. The steps are as follows:
 1. [Install Anaconda as normal.](https://www.anaconda.com/)
 2. Open `Edit the system environment variables`>`Environment variables`. On the `System variables` section, click `Path` and then add the following paths
-        
-        `C:\ProgramData\Anaconda3\Scripts`
-        
-        `C:\ProgramData\Anaconda3\Library\bin`
-        
-2. Open `Windows Powershell`(remember to run this program with the **Run as Administrators** option), and use the command `Set-ExecutionPolicy RemoteSigned` to change the Powershell Execution Policy to Remote Signed.
+```        
+C:\ProgramData\Anaconda3\Scripts`
+```       
+```
+C:\ProgramData\Anaconda3\Library\bin
+```       
+3. Open `Windows Powershell`(remember to run this program with the **Run as Administrators** option), and use the command `Set-ExecutionPolicy RemoteSigned` to change the Powershell Execution Policy to Remote Signed.
     
-    ![Figure 4: Change the `ExecutionPolicy` to `RemoteSigned`.](A%20guide%20to%20quickly%20install%20Anaconda%20and%20TensorFlow%20419684ec9f034aa781cc3a2be5061acd/Untitled%201.png)
-    
-    Figure 4: Change the `ExecutionPolicy` to `RemoteSigned`.
-    
-3. Open Anaconda Prompt (Run as Administrators) and run the command `conda init powershell` to add conda-related startup to a Powershell profile.
-    
-    ![Figure 5: Add conda-related startup to Windows Powershell.](A%20guide%20to%20quickly%20install%20Anaconda%20and%20TensorFlow%20419684ec9f034aa781cc3a2be5061acd/Untitled%202.png)
-    
-    Figure 5: Add conda-related startup to Windows Powershell.
-    
+4. Open Anaconda Prompt (Run as Administrators) and run the command `conda init powershell` to add conda-related startup to a Powershell profile.
 
-![Figure 2: When installing Python using Anaconda, we need to opt for the option `All Users` to ensure every user that uses the computer will have the same distribution version.](A%20guide%20to%20quickly%20install%20Anaconda%20and%20TensorFlow%20419684ec9f034aa781cc3a2be5061acd/Untitled%203.png)
-
-Figure 2: When installing Python using Anaconda, we need to opt for the option `All Users` to ensure every user that uses the computer will have the same distribution version.
-
-![Figure 3: Add these paths to the `System Environment Variables`.](A%20guide%20to%20quickly%20install%20Anaconda%20and%20TensorFlow%20419684ec9f034aa781cc3a2be5061acd/Untitled%204.png)
-
-Figure 3: Add these paths to the `System Environment Variables`.
-
-1. To remove unused kernels in Anaconda.
+5. To remove unused kernels in Anaconda.
     1. Go to Anaconda Prompt.
     2. Run `jupyter kernelspec list` to get the paths of all installed kernels.
     3. Uninstall unwanted kernel with the following command: `jupyter kernelspec uninstall <unwanted-kernel>`
