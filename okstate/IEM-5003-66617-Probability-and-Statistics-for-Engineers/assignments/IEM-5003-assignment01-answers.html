@@ -14876,11 +14876,12 @@ thickness for this process.</p>
 <p><strong>Answer:</strong></p>
 <p>Denote $X$ as a random variable that describes the thickness measurments. Since the thickness measurements are uniformly distributed, the probability associating with each measurement will be $1/N$ with $N$ is the number of measurments. Hence, the mean of coating is computed as follows:
 $$
-\mathbb{E}[X] = \frac{1}{N}\sum^{N}_{i}p_ix_i = \frac{0.15\times0.2 + 0.16\times0.2 + 0.17\times0.2 + 0.18\times0.2 + 0.19\times0.2}{5} = 0.34
+\mathbb{E}[X] = \frac{\max(X) + \min(X)}{2} = (0.19 + 0.15) / 2 = 0.17
 $$</p>
 <p>The variance is computed as follows:
 $$
-\mathbb{V}[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2 =  (\frac{0.15^2\times0.2 + 0.16^2\times0.2 + 0.17^2\times0.2 + 0.18^2\times0.2 + 0.19^2\times0.2}{5}) - 0.34^2 = 0.1034</p>
+\mathbb{V}[X] = \frac{(\max(X) - \min(X))^2}{12} = (0.19 - 0.15)^2 / 2 \approx 0.0000333
+$$</p>
 
 </div>
 </div>
@@ -15107,24 +15108,20 @@ an auto’s interior?</p>
 <p>c. If 10 cars are sold to a rental company, what is the probability that at most 1 car has any surface flaws?</p>
 <hr>
 <p><strong>Answer:</strong></p>
-<p>The Poisson random variable - in this scenario, the number of surface flaws in plastic panels - has the following distribution:
+<p>The Poisson random variable - in this scenario, the number of surface flaws in plastic panels - has the following distribution:</p>
 $$
 f(x) = \frac{e^{-\lambda T}(\lambda T)^x}{x!} 
+$$<p>Since the mean ($\lambda$) is 0.05 per square foot and the area under interest is 10 square feet, we can agree that $\lambda T = \frac{0.05}{1}\times10 = 0.5$.</p>
+<p>a.  The probability that there are no surface flaws in an auto’s interior can be computed as follows:</p>
 $$
-Since the mean ($\lambda$) is 0.05 per square foot and the area under interest is 10 square feet, we can agree that $\lambda T = \frac{0.05}{1}\times10 = 0.5$.</p>
-<p>a.  The probability that there are no surface flaws in
-an auto’s interior can be computed as follows:
+P(X = 0) = \frac{e^{-0.5}(0.5)^0}{0!} \approx 0.606531
+$$<p>b. We assume that the number of surface flaws in a car is an independent event, then the probability that none of the 10 cars sold to a rental company has any surface flaws can be computed as:</p>
 $$
-P(X = 0) = \frac{e^{-0.5}(0.5)^0}{0!} \approx 0.606531</p>
-$$
-
-b. We assume that the number of surface flaws in a car is an independent event, then the probability that none of the 10 cars sold to a rental company has any surface flaws can be computed as:
-$$<p>P(\text{no car has flaws}) = P(X =0)^{10} = 0.606531^{10} \approx 0.006737
-$$</p>
-<p>c. The probability that at most 1 car amomg 10 cars sold to a rental company has any surface flaws can be computed as:
+P(\text{no car has flaws}) = P(X =0)^{10} = 0.606531^{10} \approx 0.006737
+$$<p>c. The probability that at most 1 car amomg 10 cars sold to a rental company has any surface flaws can be computed as:</p>
 $$
 P(\text{at most 1 car has flaws}) = P(\text{no car has flaws})  + P(\text{only one car has flaws}) = 0.006737 + \binom{10}{1}(1 - 0.006737)(0.006737)^9 \approx 0.05045
-$$</p>
+$$<p></p>
 
 </div>
 </div>
