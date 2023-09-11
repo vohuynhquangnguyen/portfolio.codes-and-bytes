@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>IEM-5013-assignment02-answers</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>IEM-5003-assignment01-answers</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14580,7 +14580,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Homework-1">Homework 1<a class="anchor-link" href="#Homework-1">&#182;</a></h1><p>Student Name: Huynh Quang Nguyen Vo</p>
+<h1 id="Homework-1">Homework 1<a class="anchor-link" href="#Homework-1">&#182;</a></h1><p>Student Name: Vo, Huynh Quang Nguyen</p>
 <p>CWID: A20446163</p>
 
 </div>
@@ -14593,139 +14593,65 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Problem-1">Problem 1<a class="anchor-link" href="#Problem-1">&#182;</a></h3><hr>
-<p><strong>Answers:</strong></p>
-<p>Denote the coordinates of the new machine as $\begin{pmatrix}x_1 \\ x_2\end{pmatrix}$. The distance from the new machine to each of the four machines is respectively given as:</p>
-<p>Distance to Machine 1: $\begin{pmatrix} |x_1 - 3| \\ |x_2 - 0| \end{pmatrix} \rightarrow |x_1 - 3| + |x_2|$ or $z_{1,1}$ + $z_{1,2}$.</p>
-<p>Distance to Machine 2: $\begin{pmatrix} |x_1 - 0| \\ |x_2 - (-3)| \end{pmatrix} \rightarrow |x_1| + |x_2+3|$ or $z_{2,1}$ + $z_{2,2}$.</p>
-<p>Distance to Machine 3: $\begin{pmatrix} |x_1 - (-2)| \\ |x_2 - 1| \end{pmatrix} \rightarrow |x_1 + 2| + |x_2-1|$ or $z_{3,1}$ + $z_{3,2}$.</p>
-<p>Distance to Machine 4: $\begin{pmatrix} |x_1 - 1| \\ |x_2 - 4| \end{pmatrix} \rightarrow |x_1-1| + |x_2 - 4|$ $z_{4,1}$ + $z_{4,2}$.</p>
-<p>(a) In this scenario:</p>
-<ul>
-<li>Decision variables: the street distances between the new machine to the four pre-existing machines, respectively.</li>
-<li>Objective function: we need to minimize the sum of the street distances from the new machine to the four pre-existing machines, respectively. Hence, our objective function is given as:
+<h3 id="Problem-2.5.3">Problem 2.5.3<a class="anchor-link" href="#Problem-2.5.3">&#182;</a></h3><p>The following table summarizes the number of deceased beetles under autolysis (the destruction of a cell after its death by the action of its own enzymes) and putrefaction (decomposition of organic matter, especially protein, by microorganisms, resulting in production of foul-smelling matter):</p>
+<table>
+<thead><tr>
+<th></th>
+<th>Autolysis-High</th>
+<th>Autolysis-Low</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Putrefaction-High</strong></td>
+<td>14</td>
+<td>59</td>
+</tr>
+<tr>
+<td><strong>Putrefaction-Low</strong></td>
+<td>18</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>a. If the autolysis of a sample is high, what is the probability that the putrefaction is low?</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>The total number of deceased beetles is: 
 $$
-\min z_{1,1} + z_{1,2} + z_{2,1} + z_{2,2} + z_{3,1} + z_{3,2} + z_{4,1} + z_{4,2} \equiv \min_{x_1, x_2} |x_1 - 3| + |x_2| + |x_1| + |x_2+3| + |x_1 + 2| + |x_2-1| + |x_1-1| + |x_2-4|
-$$ </li>
-<li>Constraints: there are only constraints for $z_{i,j}$ with $i = 1,2,3,4$ and $j = 1,2$.</li>
-</ul>
-<p>Therefore, our linear optimization model is given as:
-$$
-\min z_{1,1} + z_{1,2} + z_{2,1} + z_{2,2} + z_{3,1} + z_{3,2} + z_{4,1} + z_{4,2}
+\text{Total} = 14 + 59 + 18 + 9 = 100
 $$</p>
-<p>s.t.</p>
+<p>The number of deceased beetles whose autolysis is high is:
 $$
-\begin{cases}
-z_{1,1} \geq x_1 - 3; \quad z_{1,1} &lt; -x_1 + 3 \\ 
-z_{1,2} \geq x_2; \quad z_{1,2} &lt; -x_2 \\
-
-z_{2,1} \geq x_1; \quad z_{2,1} &lt; -x_1 \\
-z_{2,2} \geq x_2 + 3; \quad z_{2,2} &lt; -x_2 - 3 \\
-
-z_{3,1} \geq x_1 + 2; \quad z_{3,2} &lt; -x_1 - 2 \\  
-z_{3,2} \geq x_2 - 1; \quad z_{3,2} &lt; -x_2 + 1 \\  
-
-z_{4,1} \geq x_1 - 1; \quad z_{4,2} &lt; -x_1 + 1 \\  
-z_{4,2} \geq x_2 - 4; \quad z_{4,2} &lt; -x_2 + 4 \\ 
-\end{cases}
-$$<p>(b) In this scenario:</p>
-<ul>
-<li>Decision variables: the street distances between the new machine to the four pre-existing machines, respectively.</li>
-<li>Objective function: we need to minimize the sum of the weighted street distances from the new machine to the four pre-existing machines, respectively. Hence, our objective function is given as:
-$$
-\begin{aligned}
-&amp;\min w_1(z_{1,1} + z_{1,2}) + w_2(z_{2,1} + z_{2,2}) + w_3(z_{3,1} + z_{3,2}) + w_4(z_{4,1} + z_{4,2}) \\
-&amp;\equiv \min_{x_1, x_2} 5 \Big(|x_1 - 3| + |x_2| \Big) + 7 \Big(|x_1| + |x_2+3|\Big) + 3 \Big(|x_1 + 2| + |x_2-1| \Big) + 1 \Big(|x_1-1| + |x_2-4| \Big)
-\end{aligned}
-$$</li>
-<li>Constraints: there are only constraints for $z_{i,j}$ with $i = 1,2,3,4$ and $j = 1,2$.</li>
-</ul>
-<p>Therefore, our linear optimization model is given as:</p>
-$$
-\min w_1(z_{1,1} + z_{1,2}) + w_2(z_{2,1} + z_{2,2}) + w_3(z_{3,1} + z_{3,2}) + w_4(z_{4,1} + z_{4,2})
-$$<p>with $w_1, w_2, w_3, w_4 = 5, 7, 3, 1$, respectively.</p>
-<p>s.t.</p>
-$$
-\begin{cases}
-z_{1,1} \geq x_1 - 3; \quad z_{1,1} &lt; -x_1 + 3 \\ 
-z_{1,2} \geq x_2; \quad z_{1,2} &lt; -x_2 \\
-
-z_{2,1} \geq x_1; \quad z_{2,1} &lt; -x_1 \\
-z_{2,2} \geq x_2 + 3; \quad z_{2,2} &lt; -x_2 - 3 \\
-
-z_{3,1} \geq x_1 + 2; \quad z_{3,2} &lt; -x_1 - 2 \\  
-z_{3,2} \geq x_2 - 1; \quad z_{3,2} &lt; -x_2 + 1 \\  
-
-z_{4,1} \geq x_1 - 1; \quad z_{4,2} &lt; -x_1 + 1 \\  
-z_{4,2} \geq x_2 - 4; \quad z_{4,2} &lt; -x_2 + 4 \\ 
-\end{cases}
-$$<p>(c) In this scenario:</p>
-<ul>
-<li>Decision variables: the street distances between the new machine to the four pre-existing machines, respectively.</li>
-<li>Objective function: we need to minimize the sum of the street distances. Hence, our objective function is given as:
-$$
-\min z_1 + z_2 + z_3 + z_4 \equiv \min_{x_1, x_2} |x_1 - 3| + |x_2| + |x_1| + |x_2+3| + |x_1 + 2| + |x_2-1| + |x_1-1| + |x_2-4|
-$$ </li>
-<li>Constraints:<ul>
-<li>The new machine must be located in the square: ${(x_1, x_2): −1 \leq x_1 \leq 2, 0 \leq x_2 \leq 1}$</li>
-<li>There are also constraints for $z_{i,j}$ with $i = 1,2,3,4$ and $j = 1,2$.</li>
-</ul>
-</li>
-</ul>
-<p>Therefore, our linear optimization model is given as:</p>
-$$
-\min z_{1,1} + z_{1,2} + z_{2,1} + z_{2,2} + z_{3,1} + z_{3,2} + z_{4,1} + z_{4,2}
-$$<p>s.t.</p>
-$$
-\begin{cases}
-−1 \leq x_1 \leq 2 \\
-0 \leq x_2 \leq 1 \\
-z_{1,1} \geq x_1 - 3; \quad z_{1,1} &lt; -x_1 + 3 \\ 
-z_{1,2} \geq x_2; \quad z_{1,2} &lt; -x_2 \\
-
-z_{2,1} \geq x_1; \quad z_{2,1} &lt; -x_1 \\
-z_{2,2} \geq x_2 + 3; \quad z_{2,2} &lt; -x_2 - 3 \\
-
-z_{3,1} \geq x_1 + 2; \quad z_{3,2} &lt; -x_1 - 2 \\  
-z_{3,2} \geq x_2 - 1; \quad z_{3,2} &lt; -x_2 + 1 \\  
-
-z_{4,1} \geq x_1 - 1; \quad z_{4,2} &lt; -x_1 + 1 \\  
-z_{4,2} \geq x_2 - 4; \quad z_{4,2} &lt; -x_2 + 4 \\ 
-\end{cases}
-$$<p>(d) In this scenario:</p>
-<ul>
-<li>Decision variables: the street distances between the new machine to the four pre-existing machines, respectively.</li>
-<li>Objective function: we need to minimize the sum of the street distances. Hence, our objective function is given as:
-$$
-\min z_1 + z_2 + z_3 + z_4 \equiv \min_{x_1, x_2} |x_1 - 3| + |x_2| + |x_1| + |x_2+3| + |x_1 + 2| + |x_2-1| + |x_1-1| + |x_2-4|
-$$ </li>
-<li>Constraints:<ul>
-<li>The new machine must be located so that its distance from the first machine does not exceed 3/2. Thus, $|x_1 - 3| + |x_2| \leq 3/2$</li>
-<li>There are also constraints for $z_{i,j}$ with $i = 1,2,3,4$ and $j = 1,2$.</li>
-</ul>
-</li>
-</ul>
-<p>Therefore, our linear optimization model is given as:
-$$
-\min z_{1,1} + z_{1,2} + z_{2,1} + z_{2,2} + z_{3,1} + z_{3,2} + z_{4,1} + z_{4,2}
+\text{Autolysis-High} = 14 + 18 = 32
 $$</p>
-<p>s.t.</p>
+<p>The number of deceased beetles whose putrefaction is low is:
 $$
-\begin{cases}
-|x_1 - 3| + |x_2| \leq 3/2 \\
-z_{1,1} \geq x_1 - 3; \quad z_{1,1} &lt; -x_1 + 3 \\ 
-z_{1,2} \geq x_2; \quad z_{1,2} &lt; -x_2 \\
-
-z_{2,1} \geq x_1; \quad z_{2,1} &lt; -x_1 \\
-z_{2,2} \geq x_2 + 3; \quad z_{2,2} &lt; -x_2 - 3 \\
-
-z_{3,1} \geq x_1 + 2; \quad z_{3,2} &lt; -x_1 - 2 \\  
-z_{3,2} \geq x_2 - 1; \quad z_{3,2} &lt; -x_2 + 1 \\  
-
-z_{4,1} \geq x_1 - 1; \quad z_{4,2} &lt; -x_1 + 1 \\  
-z_{4,2} \geq x_2 - 4; \quad z_{4,2} &lt; -x_2 + 4 \\ 
-\end{cases}
+\text{Putrefaction-Low} = 18 + 9 = 27
+$$</p>
+<p>Therefore, the probability that the putrefaction is low given the autolysis is high can be calculated as:
 $$
+P(\text{Putrefaction-Low}|\text{Autolysis-High}) = \frac{P(\text{Putrefaction-Low},\text{Autolysis-High})}{P(\text{Autolysis-High})} = \frac{\frac{18}{100}}{\frac{32}{100}} = \frac{18}{32}=\frac{9}{16} = 0.5625 = 56.25\%
+$$</p>
+<p>b. If the putrefaction of a sample is high, what is the probability that the autolysis is high?</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>The number of deceased beetles whose putrefaction is high is:
+$$
+\text{Putrefaction-High} = 14 + 59 = 73
+$$</p>
+<p>The probability that the autolysis is high given the putrefaction is high can be calculated as:
+$$
+P(\text{Autolysis-High}|\text{Putrefaction-High})=\frac{P(\text{Autolysis-High},\text{Putrefaction-High})}{P(\text{Putrefaction-High})} = \frac{\frac{14}{100}}{\frac{73}{100}} = \frac{14}{73} \approx 0.1918 = 19.18\%
+$$</p>
+<p>c. If the putrefaction of a sample is low, what is the probability that the autolysis is low?</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>The probability that the autolysis is low given the putrefaction is low can be calculated as:
+$$
+P(\text{Autolysis-Low}|\text{Putrefaction-Low})=\frac{P(\text{Autolysis-Low},\text{Putrefaction-Low})}{P(\text{Putrefaction-Low})} = \frac{\frac{9}{100}}{\frac{27}{100}} = \frac{9}{27} = \frac{1}{3} \approx 0.3333 = 33.33\%
+$$</p>
+
 </div>
 </div>
 </div>
@@ -14736,51 +14662,467 @@ $$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Problem-2">Problem 2<a class="anchor-link" href="#Problem-2">&#182;</a></h3><hr>
-<p><strong>Answers:</strong></p>
-<ul>
-<li><p>Decision variables: denote $t_i$ is the start time of task $i$, and $d_i$ is the duration needed to complete task $i$. Hence, our decision variables are:</p>
-<ul>
-<li>Start time and duration needed to complete task A: $t_A$, $d_A$.</li>
-<li>Start time and duration needed to complete task B: $t_B$, $d_B$.</li>
-<li>Start time and duration needed to complete task C: $t_C$, $d_C$.</li>
-<li>Start time and duration needed to complete task D: $t_D$, $d_D$.</li>
-<li>Start time and duration needed to complete task E: $t_E$, $d_E$.</li>
-</ul>
-</li>
-<li><p>Objective function: we need to find the earliest completion date of the $X$ project if all tasks are completed according to their regular duration. Hence, our objective function is given as:
+<h3 id="Problem-2.6.1">Problem 2.6.1<a class="anchor-link" href="#Problem-2.6.1">&#182;</a></h3><p>Suppose that $P(A | B) = 0.4$ and $P(B) = 0.5$. Determine the following:</p>
+<p>a. $P(A \cap B)$</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>According to the multiplication rule, $P(A \cap B)$ can be computed as follows:
 $$
-\min t_E
-$$
-where $d_A = 2, d_B = 13, d_C = 7, d_D = 8, d_E = 10$</p>
-</li>
-<li><p>Constraints:</p>
-<ul>
-<li>All start time $t_A, t_B, t_C, t_D, t_E$ must be non-negative.</li>
-<li>Some of these tasks have predecessors that must be completed before the task can be started. Therefore, our constraints are given as:<ul>
-<li>For the start time of task B: $t_B \geq t_A + d_A$.</li>
-<li>For the start time of task C: $t_C \geq t_A + d_A$.</li>
-<li>For the start time of task D: $\max\Big(t_A + d_A, t_B + d_B \Big)$.</li>
-<li>For the start time of task E: $\max\Big(t_B + d_B, t_C + d_C, t_D + d_D \Big)$</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>Therefore, our linear optimization problem is given as:
-$$
-\min t_E
+P(A \cap B) = P(A|B)\times P(B) = 0.4\times0.5=0.2
 $$</p>
-<p>s.t</p>
+<p>b. $P(A' \cap B)$</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>According to the multiplication rule, $P(A' \cap B)$ can be calculated as follows:
+$$
+P(A' \cap B) = P(A'|B)\times P(B)
+$$
+Since $P(A'|B)$ and $P(A|B)$ are complementary events, $P(A'|B)$ is calculated as:
+$$
+P(A'|B) = 1 - P(A|B) = 1 - 0.4 = 0.6
+$$
+Therefore, $P(A' \cap B)$ is calculated as:
+$$
+P(A' \cap B) = 0.6\times 0.5 = 0.3
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Problem-2.7.4">Problem 2.7.4<a class="anchor-link" href="#Problem-2.7.4">&#182;</a></h3><p>Disks of polycarbonate plastic from a supplier are analyzed for scratch and shock resistance. The results from 100 disks are summarized as follows:</p>
+<table>
+<thead><tr>
+<th></th>
+<th>Shock-High</th>
+<th>Shock-Low</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Scratch-High</strong></td>
+<td>70</td>
+<td>9</td>
+</tr>
+<tr>
+<td><strong>Scratch-Low</strong></td>
+<td>16</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>Let A denote the event that a disk has high shock resistance, and let B denote the event that a disk has high scratch resistance. Are events A and B independent?</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>To determine whether these two events are independent, we have to prove that:
+$$
+P(A|B) = P(A) \quad \cup \quad P(B|A) = P(B)
+$$</p>
+<p>In this scenario, $P(A)$ and $P(B)$ are calculated as follows:
+$$
+P(A) = \frac{70+16}{100}=\frac{86}{100}
+$$
+$$
+P(B) = \frac{70+9}{100} = \frac{79}{100}
+$$</p>
+<p>Meanwhile, $P(A|B)$ and $P(B|A)$ are calculated as follows:
+$$
+P(A|B) = \frac{P(A\cap B)}{P(B)} = \frac{\frac{70}{100}}{\frac{79}{100}} = \frac{70}{79}
+$$
+$$
+P(B|A) = \frac{P(A\cap B)}{P(A)} = \frac{\frac{70}{100}}{\frac{86}{100}} = \frac{70}{86}
+$$</p>
+<p>Since $P(A|B) \neq P(A)$ and $P(B|A) \neq P(B)$, these two events are dependent to each other.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Problem-2.8.4">Problem 2.8.4<a class="anchor-link" href="#Problem-2.8.4">&#182;</a></h3><p>Software to detect fraud in consumer phone cards tracks the number of metropolitan areas where calls originate
+each day. It is found that 1% of the legitimate users originate calls from two or more metropolitan areas in a single day. However, 30% of fraudulent users originate calls from two or more metropolitan areas in a single day. The proportion of fraudulent users is 0.01%. If the same user originates calls from two or more metropolitan areas in a single day, what is the probability that the user is fraudulent?</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>Let $F$ be the event that a user is fraudulent, and let $M$ be the event that a user originates calls from two or more metropolitan areas in a single day. Hence, we define that:</p>
+<ul>
+<li>$P(F|M)$: the probability that a user is fraudulent given they origniate calls from two or more metropolitan areas in a single day.</li>
+<li>$P(M|F)$: the probability that a fraudulent user originates calls from two or more metropolitan areas in a single day. In this scenario, 30% of fraudulent users originate calls from two or more metropolitan areas in a single day means that $P(M|F) = 0.3$.</li>
+<li>$P(F)$: the total proportion of fraudulent users. In this scenario, the proportion of fraudulent users is 0.01% means that $P(F) = 0.0001$.</li>
+<li>$P(M)$: the total proportion of users from two or more metropolitan areas.</li>
+<li>$P(M|F')$: the probability that a user is legitimate given they origniate calls from two or more metropolitan areas in a single day. In this case, 1% of the legitimate users originate calls from two or more metropolitan areas in a single day means that $P(M|F') = 0.01$.</li>
+</ul>
+<p>Using the Bayes' Rule, $P(F|M)$ can be calculated as:
+$$
+P(F|M) = \frac{P(M|F)\times P(F)}{P(M)}
+$$</p>
+<p>To calculate $P(M)$, we can use the law of total probability:
+$$
+P(M) = P(M|F)\times P(F) + P(M|F')\times P(F') = 0.3\times0.0001 + 0.01\times(1 - 0.0001) \approx 0.01003
+$$</p>
+<p>Therefore, $P(F|M) = 0.3 \times 0.0001 / 0.01003 \approx 0.00299 = 0.299%$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Problem-3.1.10">Problem 3.1.10<a class="anchor-link" href="#Problem-3.1.10">&#182;</a></h3><p>Verify that the following functions are probability mass functions, and determine the requested probabilities.
+$f(x) = \frac{8}{7}(\frac{1}{2})^x$ given $x = 1, 2, 3$.</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>To verify whether $f(x)$ is a probability mass function, we must verify that:</p>
+<ul>
+<li>$f(x = x_i)\geq 0 \quad \forall x_i = \{1,2,3\}$.</li>
+<li>$\sum_{x_i}f(x_i) = 1 \quad \forall x_i = \{1,2,3\}$.</li>
+</ul>
+<p>In this scenario:
+$$f(x = 1) = \frac{8}{7}(\frac{1}{2})^1 = \frac{4}{7}$$
+$$f(x = 2) = \frac{8}{7}(\frac{1}{2})^2 = \frac{2}{7}$$
+$$f(x = 3) = \frac{8}{7}(\frac{1}{2})^3 = \frac{1}{7}$$
+Since $f(x=1)\geq 0$, $f(x=2)\geq 0$, $f(x=3)\geq 0$, and $f(x=1) + f(x=2) + f(x=3) = 1$, we can conclude that $f(x)$ is a probability mass function.</p>
+<p>(a) $P(X\leq 1) = \frac{8}{7}(\frac{1}{2})^1 = \frac{4}{7}$.</p>
+<p>(b) $P(X &gt; 1) = 1 - P(X\leq1) = 1 - \frac{4}{7} = \frac{3}{7}$.</p>
+<p>(c) $P(2 &lt; X &lt; 6) = P(X=3) = \frac{1}{7}$</p>
+<p>(d) $P(X \leq 1 \text{ or } X &gt; 1) = \frac{8}{7}(\frac{1}{2})^1 + \frac{8}{7}(\frac{1}{2})^2  + \frac{8}{7}(\frac{1}{2})^3 = 1$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Problem-3.1.17">Problem 3.1.17<a class="anchor-link" href="#Problem-3.1.17">&#182;</a></h3><p>An assembly consists of three mechanical components. Suppose that the probabilities that the first, second, and third components meet specifications are 0.95, 0.98, and
+0.99, respectively. Assume that the components are independent. Determine the probability mass function of the number of components in the assembly that meet specifications.</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>We have the following table:</p>
+<table>
+<thead><tr>
+<th>Component</th>
+<th>Meet Specifications</th>
+<th>Does Not Meet Specifications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1st</td>
+<td>0.95</td>
+<td>1 - 0.95 = 0.05</td>
+</tr>
+<tr>
+<td>2nd</td>
+<td>0.98</td>
+<td>1 - 0.98 = 0.02</td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>0.99</td>
+<td>1 - 0.99 = 0.01</td>
+</tr>
+</tbody>
+</table>
+<p>Therefore, the probability mass function of the number of components in the assembly that meet specifications is defined as:
 $$
 \begin{cases}
-t_i \geq 0, \forall i = \{A, B, C, D, E\} \\
-t_B \geq t_A + d_A \\
-t_C \geq t_A + d_A \\
-t_D \geq \max \Big(t_A + d_A, t_B + d_B \Big) \\
-t_E \geq \max \Big(t_B + d_B, t_C + d_C, t_D + d_D \Big)
+f(X = 0) = 0.05 \times 0.02 \times 0.01 = 0.00001 \quad [1]\\
+f(X = 1) = 0.95 \times 0.02 \times 0.01 + 0.98 \times 0.05 \times 0.01 + 0.99 \times 0.05 \times 0.02 = 0.00167 \quad [2] \\
+f(X = 2) = 0.95 \times 0.98 \times 0.01 + 0.95 \times 0.02 \times 0.99 + 0.05 \times 0.98 \times 0.99 = 0.07663 \quad [3] \\
+f(X = 3) = 0.95 \times 0.98 \times 0.99 = 0.92169 \quad [4] \\
 \end{cases}
 $$
+where:</p>
+<ul>
+<li>[1]: in this scenario, all components do not meet the specifications.</li>
+<li>[2]: in this scenario, one out of three components meets the specification - either the 1st, the 2nd, or the 3rd component.</li>
+<li>[3]: in this scenario, two out of three components meet the specification - either the 1st and the 2nd, the 1st and the 3rd, or the 2nd and the 3rd components.</li>
+<li>[4]: in this scenario, all components meet the specification.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Problem-3.4.4">Problem 3.4.4<a class="anchor-link" href="#Problem-3.4.4">&#182;</a></h3><p>Thickness measurements of a coating process are
+made to the nearest hundredth of a millimeter. The thickness measurements are uniformly distributed with values 0.15, 0.16, 0.17,
+0.18, and 0.19. Determine the mean and variance of the coating
+thickness for this process.</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>Denote $X$ as a random variable that describes the thickness measurments. Since the thickness measurements are uniformly distributed, the probability associating with each measurement will be $1/N$ with $N$ is the number of measurments. Hence, the mean of coating is computed as follows:
+$$
+\mathbb{E}[X] = \frac{\max(X) + \min(X)}{2} = (0.19 + 0.15) / 2 = 0.17
+$$</p>
+<p>The variance is computed as follows:
+$$
+\mathbb{V}[X] = \frac{(\max(X) - \min(X))^2}{12} = (0.19 - 0.15)^2 / 12 \approx 0.000133
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Problem-3.5.6">Problem 3.5.6<a class="anchor-link" href="#Problem-3.5.6">&#182;</a></h3><p>An electronic product contains 40 integrated circuits.
+The probability that any integrated circuit is defective is 0.01, and
+the integrated circuits are independent. The product operates only
+if there are no defective integrated circuits. What is the probability
+that the product operates?</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>Since all integrated circuits are independent from one to another, the probability that the product operates can be computed as follows:
+$$
+P(\text{operate}) = \Big (1 - P(\text{defective}) \Big )^{40} = (1 - 0.01)^{40} \approx 0.669
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Problem-3.5.10">Problem 3.5.10<a class="anchor-link" href="#Problem-3.5.10">&#182;</a></h3><p>Heart failure is due to either natural occurrences
+(87%) or outside factors (13%). Outside factors are related to
+induced substances or foreign objects. Natural occurrences are
+caused by arterial blockage, disease, and infection. Suppose
+that 20 patients will visit an emergency room with heart failure. Assume that causes of heart failure for the individuals are
+independent.</p>
+<p>a. What is the probability that three individuals have conditions caused by outside factors?</p>
+<p>b. What is the probability that three or more individuals
+have conditions caused by outside factors?</p>
+<p>c. What are the mean and standard deviation of the
+number of individuals with conditions caused by outside
+factors?</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>In this scenrio, we assume that the event when a patient has a heart failure is an independent event.</p>
+<p>a. The probability that three individuals have conditions caused by outside factors can be computed as follows:
+$$
+P(X = 3) = \binom{20}{3}p^3(1 - p)^{17} = \binom{20}{3}(0.13)^3(0.87)^{17} \approx 0.2347
+$$</p>
+<p>with $p$ is the probability that the heart failure is caused by outside factors.</p>
+<p>b. The probability that three or more individuals have conditions caused by outside factors can be computed as follows:
+$$
+\begin{aligned}
+P(X \geq 3) &amp;= 1 - P(X = 0) - P(X = 1) - P(X = 2) = \\
+&amp;= 1 - (1-p)^{20} - \binom{20}{1}p(1 - p)^{19} - \binom{20}{2}p^2(1-p)^{18} \\
+&amp;= 1 - (0.87)^{20}  - \binom{20}{1}(0.13)^1(0.87)^{19} - \binom{20}{2}(0.13)^2(0.87)^{18} \approx 0.4920
+\end{aligned}
+$$
+with $P(X = 0)$ is the probability of no patient having outside-factors-induced heart failure, $P(X = 1)$ is the probability of there is only one patient having outside-factors-induced heart failure, and $P(X = 2)$ is the probability of there are two patients having outside-factors-induced heart failure.</p>
+<p>c. The mean and standard deviation of the number of individuals with conditions caused by outside factors are given as follows:
+$$ 
+\begin{aligned}
+&amp;\mu = n\times p = 20\times0.13 = 2.6 \\
+&amp;v = \sqrt{np(1-p)} = 20\times0.13\times0.87 \approx 1.513
+\end{aligned}
+$$
+with $n$ is the number of patients.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Problem-3.6.3">Problem 3.6.3<a class="anchor-link" href="#Problem-3.6.3">&#182;</a></h3><p>Consider a sequence of independent Bernoulli trials with $p = 0.2$.</p>
+<p>a. What is the expected number of trials to obtain the first success?</p>
+<p>b. After the eighth success occurs, what is the expected number of trials to obtain the ninth success?</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>a. Assuming that the probability for a trial to be succeeded is $p = 0.2$. We know the number of trials that are succeeded can be found using the geometric distribution:
+$$
+P(X = k) = p(1-p)^{k-1}
+$$
+with $k$ is the number of trials up to the first success. Hence, the expected number of trials to obtain the first success $E(X)$ is given as:
+$$
+E(X) = \frac{1}{p} = \frac{1}{0.2} = 5
+$$</p>
+<p>b. The expected number of trials to obtain the ninth success after the eighth success occurs is also a geometric distribution problem. Since the trials are independent, the probability of success in each trial remains the same ($p = 0.2$). Hence, the expected number of trials to obtain the ninth success will be 5.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Problem-3.6.7">Problem 3.6.7<a class="anchor-link" href="#Problem-3.6.7">&#182;</a></h3><p>Heart failure is due to either natural occurrences
+(87%) or outside factors (13%). Outside factors are related
+to induced substances or foreign objects. Natural occurrences are caused by arterial blockage, disease, and infection.
+Assume that causes of heart failure for the individuals are
+independent.</p>
+<p>a. What is the probability that the first patient with heart
+failure who enters the emergency room has the condition due
+to outside factors?</p>
+<p>b. What is the probability that the third patient with heart
+failure who enters the emergency room is the first one due to
+outside factors?</p>
+<p>c. What is the mean number of heart failure patients with
+the condition due to natural causes who enter the emergency
+room before the first patient with heart failure from outside
+factors?</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>a. The probability that the first patient with heart failure who enters the emergency room has the condition due to outside factors:
+$$
+P(A) = P(\text{outside factors}) = 0.13
+$$</p>
+<p>b. By saying the third patient with heart failure who enters the emergency room is the first one due to outside factors, we mean that the first two patients have a heart attack caused by natural occurrences. Hence, this probability can be computed as:
+$$
+P(B) = P(\text{natural occurences})^2\times P(\text{outside factors}) = 0.87^2\times0.13 = 0.0984
+$$</p>
+<p>c. We can consider that the number of patients with the condition due to outide factors has a geometric distribution:
+$$
+P(X = k) = p(1-p)^k
+$$
+with $p = 0.13$, and $k$ is the number of patients with heart failure up to the first one is caused by outside. Hence, the mean number is:
+$$
+E(X) = \frac{1}{p} = 1/0.13 \approx 7.69 
+$$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Problem-3.8.3">Problem 3.8.3<a class="anchor-link" href="#Problem-3.8.3">&#182;</a></h3><p>Suppose that the number of customers who enter a
+store in an hour is a Poisson random variable, and suppose that
+$P(X = 0) = 0.05$. Determine the mean and variance of $X$.</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>The Poisson random variable - the number of customers who enter a
+store in an hour in this scenario -  is generally described as:
+$$
+f(x) = \frac{e^{-\lambda T}(\lambda T)^x}{x!}
+$$</p>
+<p>In this scenario, $P(X = 0) = 0.05$. Hence,
+$$
+P(X = 0) = \frac{e^{-\lambda T}(\lambda T)^0}{0!} = 0.05 \rightarrow (\lambda T) \approx 2.9957
+$$
+Therefore,</p>
+<ul>
+<li>Mean: $E(X) = \lambda T = 2.9957$</li>
+<li>Variance: $V(X) = E(X) = 2.9957$ </li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Problem-3.8.5">Problem 3.8.5<a class="anchor-link" href="#Problem-3.8.5">&#182;</a></h3><p>Astronomers treat the number of stars in a
+given volume of space as a Poisson random variable. The density
+in the Milky Way Galaxy in the vicinity of our solar system is one
+star per 16 cubic light-years.</p>
+<p>a. What is the probability of two or more stars in 16 cubic
+light-years?</p>
+<p>b. How many cubic light-years of space must be studied so
+that the probability of one or more stars exceeds 0.95?</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>The Poisson random variable -  the number of stars in a
+given volume of space in this scenario - is generally described as:
+$$
+f(x) = \frac{e^{-\lambda T}(\lambda T)^x}{x!}
+$$
+Given that the density is one star per 16 cubic light years, we can agree that $\lambda T = \frac{1}{16}$.</p>
+<p>a. The probability of two or more stars in 16 cubic light-years can be computed as follows:
+$$
+P(X \geq 2) = 1 - P(X = 0) - P(X = 1) = 1 - \frac{e^{-1}(1)^0}{0!} - \frac{e^{-1}(1)^1}{1!} \approx 0.2642
+$$</p>
+<p>b. In this case, we need to find the $\lambda T $ since our volume under interest is now different. The new $\lambda T $  can be computed as follows:
+$$
+P(X \geq 1) = 0.95 \rightarrow 1 - \frac{e^{-\lambda_1 T_1}(\lambda_1 T_1)^0}{0!} = 0.95 \rightarrow \lambda_1 T_1 \approx 3
+$$
+Since $\lambda_0T_0 = \lambda_1T_1$, the new volume (in cubic light-years) is computed as: $T_1 = (16\times3) / 1 = 48$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Problem-3.8.9">Problem 3.8.9<a class="anchor-link" href="#Problem-3.8.9">&#182;</a></h3><p>The number of surface flaws in plastic panels used
+in the interior of automobiles has a Poisson distribution with a
+mean of 0.05 flaw per square foot of plastic panel. Assume that
+an automobile interior contains 10 square feet of plastic panel.</p>
+<p>a. What is the probability that there are no surface flaws in
+an auto’s interior?</p>
+<p>b. If 10 cars are sold to a rental company, what is the probability that none of the 10 cars has any surface flaws?</p>
+<p>c. If 10 cars are sold to a rental company, what is the probability that at most 1 car has any surface flaws?</p>
+<hr>
+<p><strong>Answer:</strong></p>
+<p>The Poisson random variable - in this scenario, the number of surface flaws in plastic panels - has the following distribution:</p>
+$$
+f(x) = \frac{e^{-\lambda T}(\lambda T)^x}{x!} 
+$$<p>Since the mean ($\lambda$) is 0.05 per square foot and the area under interest is 10 square feet, we can agree that $\lambda T = \frac{0.05}{1}\times10 = 0.5$.</p>
+<p>a.  The probability that there are no surface flaws in an auto’s interior can be computed as follows:</p>
+$$
+P(X = 0) = \frac{e^{-0.5}(0.5)^0}{0!} \approx 0.606531
+$$<p>b. We assume that the number of surface flaws in a car is an independent event, then the probability that none of the 10 cars sold to a rental company has any surface flaws can be computed as:</p>
+$$
+P(\text{no car has flaws}) = P(X =0)^{10} = 0.606531^{10} \approx 0.006737
+$$<p>c. The probability that at most 1 car amomg 10 cars sold to a rental company has any surface flaws can be computed as:</p>
+$$
+P(\text{at most 1 car has flaws}) = P(\text{no car has flaws})  + P(\text{only one car has flaws}) = 0.006737 + \binom{10}{1}(1 - 0.006737)(0.006737)^9 \approx 0.05045
+$$<p></p>
+
 </div>
 </div>
 </div>
