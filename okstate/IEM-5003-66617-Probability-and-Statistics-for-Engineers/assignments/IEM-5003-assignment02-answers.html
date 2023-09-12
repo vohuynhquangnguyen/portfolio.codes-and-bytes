@@ -14797,7 +14797,7 @@ P(X&gt;10,200) = P(Z&gt;\frac{10,200 - 10,000}{\sqrt{10,000}}) = P(Z&gt;2) = 0.0
 $$
 Denote $D$ as the event where the number of hits in a single days exceed 10,200. We can agree that $D$ follows a binomial distribution. Therefore, the expected number of days in a year can be computed as:
 $$
-E(D) = 365*0.0228 = 8.32
+E(D) = 365 \times 0.0228 = 8.32
 $$</p>
 <p>e. Denote $E$ as the event where each of the more than 15 days has more than 10,200 hits. The probability that $E$ occurs can be computed as:
 $$
@@ -14934,9 +14934,9 @@ with $\Gamma(k) = (k-1)!$</p>
 properties of a joint probability mass function.</p>
 <table>
 <thead><tr>
-<th>$x$</th>
-<th>$y$</th>
-<th>$f_{x,y}(x, y)$</th>
+<th>x</th>
+<th>y</th>
+<th>f(x,y)</th>
 </tr>
 </thead>
 <tbody>
@@ -15099,8 +15099,8 @@ $$</p>
 <p>d. $X$ and $Y$ are independent when $f_{X,Y}(x, y) = f_X(x) \times f_Y(y)$. According to the given table, the marginal distributions are:
 $$
 \begin{cases}
-f_X(X = 1.0) = 1/4;  f_X(X = 1.5) = 1/8 + 1/4 = 3/8, f_X(X = 2.5) = 1/4; f_X(X = 3.0) = 1/8 \\
-f_Y(Y = 1) = 1/4; f_Y(Y = 2) = 1/8; f_Y(Y = 3) = 1/4; f_Y(Y = 4) = 1/4; f_Y(Y = 5) = 1/8 
+f_X(X = 1.0) = 1/4 \quad f_X(X = 1.5) = 1/8 + 1/4 = 3/8 \quad f_X(X = 2.5) = 1/4 \quad f_X(X = 3.0) = 1/8 \\
+f_Y(Y = 1) = 1/4 \quad f_Y(Y = 2) = 1/8 \quad f_Y(Y = 3) = 1/4 \quad f_Y(Y = 4) = 1/4 \quad f_Y(Y = 5) = 1/8 
 \end{cases}
 $$</p>
 <p>When $X = 1.0$ and $Y = 1$, $f_{X,Y}(X = 1.0, Y = 1) = 1/4$. This is not equal to $f_X(X = 1.0) \times f_Y(Y = 1) = (1/4)(1/4) = 1/16$. Therefore, $X$ and $Y$ are not independent.</p>
@@ -15120,7 +15120,7 @@ $$</p>
 <thead><tr>
 <th>x</th>
 <th>y</th>
-<th>$f_{XY}$</th>
+<th>f(x,y)</th>
 </tr>
 </thead>
 <tbody>
@@ -15174,7 +15174,7 @@ with $V(x)$ and $V(y)$ can be computed as follows:
 $$
 \begin{aligned}
 &amp;V(x) = \sum_x x^2P(X = x) - \Big[E(X)\Big]^2 = 1^2\times(\frac{1}{8} + \frac{1}{4}) + 2^2\times\frac{1}{2} + 4^2\times\frac{1}{8} - 1.875^2 \approx 0.8594 \\
-&amp;V(y) = \sum_y y^2P(Y = y) - E^2(Y) = 3^2\times(\frac{1}{8}) + 4^2\times(\frac{1}{4}) + 5^2\times\frac{1}{2} + 6^2\times\frac{1}{8} - 4.625^2 \approx 0.7344 
+&amp;V(y) = \sum_y y^2P(Y = y) - \Big[E(Y)\Big]^2 = 3^2\times(\frac{1}{8}) + 4^2\times(\frac{1}{4}) + 5^2\times\frac{1}{2} + 6^2\times\frac{1}{8} - 4.625^2 \approx 0.7344 
 \end{aligned}
 $$
 Therefore, $\text{Cov}(x,y)$ is computed as:
