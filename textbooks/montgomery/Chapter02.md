@@ -140,4 +140,96 @@ $$
 \end{cases}
 $$
 
-## 
+## Section 2.6
+### Problem 2.6.1
+a.
+$$
+P(A\cap B) = P(A|B)\times P(B) = 0.4\times0.5 = 0.2
+$$
+
+b.
+$$
+P(A^C\cap B) = P(A^C|B)\times P(B) = \Big(1 - P(A|B)\Big)P(B) = (1 - 0.4)0.5 = 0.3
+$$
+
+### Problem 2.6.2
+$$
+P(A|B) = \frac{P(A,B)}{P(B)}
+$$
+$$
+P(A|B^C) = \frac{P(A,B^C)}{P(B^C)}
+$$
+According to the rule of total probability, $P(A,B^C) + P(A,B) = P(A)$. Therefore, $P(A)$ is computed as:
+$$
+P(A) = P(A|B)\bullet P(B) + P(A|B^C)\times P(B^C) = 0.2\times0.8 + 0.3\times(1-0.8)=0.22
+$$
+
+### Problem 2.6.3
+Denote $C$ as the condition of the connector, whose outcomes are either dry (0) or wet (1), and $S$ as the status of the connector, whose outcomes are either failure (1) or functional (0). Therefore,
+* The probability that the connector fails when it is kept dry can be denoted as $P(S = 1|C = 0)$, and $P(S = 1|C = 0) = 0.01$.
+* The probability that the connector fails when it is wet can be denoted as $P(S = 1|C = 1)$, and $P(S = 1, C = 1) = 0.05$.
+* The probability that the connectors are kept dry can be denoted as $P(C = 0)$, and $P(C = 0) = 0.9$
+* The probability that the connectors are wet can be denoted as $P(C = 1)$, and $P(C = 1) = 0.1$
+
+Thus, the probability that the connectors fail is computed as:
+$$
+P(S = 1) = P(S =1|C = 0)\times P(C=0) + P(S =1 |C = 1)\times P(C = 1) = 0.01\times0.9 + 0.05\times0.1 = 0.014
+$$
+
+### Problem 2.6.4
+Denote $H$ as the event where a heart failure occurs, whose outcomes are either $NC$ (due to natural occurances), and $OF$ (due to outside factors). Within $NC$, there are three possible outcomes namely arterial blockage $NC_1$, disease $NC_2$ and infection $NC_3$. On the other hand, within $OF$, there are two possible outcomes namely induced substances $OF_1$ and foreign objects $OF_2$.
+
+a.
+
+The probability that a failure is due to an induced substance is computed as:
+$$
+P(H = OF_1) = P(H = OF)\times P(OF_1) = 0.13\times 0.73 = 0.0949
+$$
+
+b.
+
+The probability that a failure is due to disease or infection. 
+$$
+\begin{aligned}
+P(H = NC_2 \cup H = NC_3) &= P(H = NC_2) +  P(H = NC_3) \\
+&= P(H = NC)\times P(NC_2) + P(H = NC)\times P(NC_3) \\
+&= 0.87\times0.27 + 0.87\times0.17 = 0.3828
+\end{aligned} 
+$$
+
+### Problem 2.6.5
+Denote $K$ as the condition of the knife, whose outcomes are new $K_1$, average $K_2$, and dull $K_3$. Meanwhile, denote $ER$ as the condition of the edge roughness, whose outcomes are either not exhibiting $ER_1$ or exhibiting $ER_2$. Therefore, the proportion of paper products that exhibit edge roughness is computed as:
+$$
+\begin{aligned}
+P(ER = ER_2) &= P(ER_2|K_1)\times P(K_1) + P(ER_2|K_2)\times P_(K_2) + P(ER_2|K_3)\times P(K_3) \\
+&= 0.01\times0.25 + 0.03\times0.6+ 0.5\times0.15 \\
+&= 0.0955
+\end{aligned}
+$$
+
+### Problem 2.6.6
+a.
+
+The probability that second chip selected to be defective is computed as:
+$$
+P(X_2 = 1) = P(X_2 = 1|X_1 = 0) + P(X_2 = 1|X_1 = 1) = \frac{20}{99}\times\frac{100-20}{100} + \frac{19}{99}\times\frac{20}{100} = 0.2
+$$
+
+b. 
+The probability that all are defective is computed as:
+$$
+P(X_1 = 1, X_2 = 1, X_3 = 1) = \frac{20}{100}\times\frac{19}{99}\times\frac{18}{98} \approx 0.0070
+$$
+
+### Problem 2.6.7
+
+### Problem 2.6.8
+
+## Section 2.7
+### Problem 2.7.1
+$B$ and $A^C$ are independent when $P(A^C,B) = P(B)\times P(A^C)$. Hence, we need to check whether this relationship is true.
+* In this case, $P(B) = 0.8$ and $P(A^C) = 1 - P(A) = 1 - 0.3 = 0.7$. Therefore, $P(A^C)\times P(B) = 0.7\times0.8 = 0.56$.
+* Meanwhile, $P(A|B) = 1 - P(A^C|B)$. Thus, $P(A^C|B) = 1 - 0.3 = 0.7$. Therefore, $P(A^C,B) = P(A^C|B)\times P(B) = 0.56$
+As a result, these events $B$ and $A^C$ are independent.
+
+
