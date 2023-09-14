@@ -233,3 +233,66 @@ $B$ and $A^C$ are independent when $P(A^C,B) = P(B)\times P(A^C)$. Hence, we nee
 As a result, these events $B$ and $A^C$ are independent.
 
 
+### Problem 2.7.2
+In this case, $A$ and $B$ are mutually exclusive events, so $P(A,B) = 0$. For $A$ and $B$ to be independent from one to another, $P(A,B) = P(A)\times P(B)$. Since  $P(A,B) = 0 \neq P(A)\times P(B)$, these events are not independent.
+
+### Problem 2.7.3
+Denote $A$ and $B$ as events that the first and second containers selected are defective, respectively.
+
+a.
+
+For $A$ and $B$ to be independent events, these relationship have to hold true:
+$$
+\begin{cases}
+P(A,B) = P(A)\times P(B) \\ 
+P(A|B) = P(A|B^C) = P(A) \\
+P(B|A) = P(B|A^C) = P(B) 
+\end{cases}
+$$
+
+In this scenario, the probability that the first container is defective is given as $P(A) = \frac{5}{500}$. Meanwhile, the probability that the second container is defective is given as $P(B) = \frac{4}{499}$ as one defective container is already selected. Since the presence of $A$ influences the presence of $B$, $A$ and $B$ are not independent.
+
+b.
+When sampling were done with replacement, $A$ and $B$ would be independent because:
+* The probability that the first container is defective is $P(A) = \frac{5}{500}$.
+* The probability that the second container is defective is still $P(B) = \frac{5}{500}$ as even though the first selected container is defective, it is placed back into the batch for the next sample.
+
+### Problem 2.7.11
+Denote
+* $A_1$,$A_2$ are elements in the first combination.
+* $B_1$,$B_2$ are elements in the second combination.
+* $C_1$, $C_2$ are elements in the third combination.
+
+In this circuitry,
+* The first combination works when either $A_1$ or $A_2$ works. Hence, the probability that the first combination works is computed as:
+$$
+\begin{aligned}
+P(A) &= P(A_1,A_2) + P(A_1^C,A_2) + P(A_1,A_2^C) \\
+&= 0.9\times0.95 + (1-0.9)\times0.95 + 0.9\times(1-0.95) \\
+&= 0.995
+\end{aligned}
+$$
+
+* The second combination works when either $B_1$ or $B_2$ works. Hence, the probability that the second combination works is computed as:
+$$
+\begin{aligned}
+P(B) &= P(B_1,B_2) + P(B_1^C,B_2) + P(B_1,B_2^C) \\
+&= 0.9\times0.95 + (1-0.9)\times0.95 + 0.9\times(1-0.95) \\
+&= 0.995
+\end{aligned}
+$$
+* The third combination works when either $C_1$ or $C_2$ works. Hence, the probability that the third combination works is computed as:
+$$
+\begin{aligned}
+P(C) &= P(C_1,C_2) + P(C_1^C,C_2) + P(C_1,C_2^C) \\
+&= 0.8\times0.9 + (1-0.8)\times0.9 + 0.8\times(1-0.9) \\
+&= 0.98
+\end{aligned}
+$$
+
+* The circuit works when all these combinations work, hence
+$$
+P = P(A)\times P(B) \times P(C) \approx 0.9702
+$$
+
+### Problem 2.7.12
