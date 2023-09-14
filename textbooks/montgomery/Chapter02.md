@@ -1,5 +1,3 @@
-# Exercises for Section 2.5
-
 ## Section 2.5
 
 ### Problem 2.5.1
@@ -257,6 +255,9 @@ When sampling were done with replacement, $A$ and $B$ would be independent becau
 * The probability that the first container is defective is $P(A) = \frac{5}{500}$.
 * The probability that the second container is defective is still $P(B) = \frac{5}{500}$ as even though the first selected container is defective, it is placed back into the batch for the next sample.
 
+### Problem 2.7.4
+
+
 ### Problem 2.7.11
 Denote
 * $A_1$,$A_2$ are elements in the first combination.
@@ -296,3 +297,31 @@ P = P(A)\times P(B) \times P(C) \approx 0.9702
 $$
 
 ### Problem 2.7.12
+Denote $A$ and $B$ as the upper and lower branches of the circuit, respectively.
+* The probability that the upper branch works is computed as:
+$$
+P(A) = 0.9\times0.8\times0.7 = 0.504
+$$ 
+* The probability that the lower branch works is computed as:
+$$
+P(B) = 0.95\times0.95\times0.95 = 0.8573
+$$
+
+In this scenario, the circuit operates when either of the branch works. Hence, the probability that the circuit operates is given as:
+$$
+\begin{aligned}
+P &= P(A)\times P(B) + P(A^C)\times P(B) + P(A)\times P(B^C) \\
+&= 0.504\times0.8573 + (1-0.504)\times0.8573 + 0.504\times(1-0.8573) \\
+&\approx 0.9292
+\end{aligned}
+$$
+
+## Section 2.8
+
+### Problem 2.8.1
+
+### Problem 2.8.2
+According to Bayes' rule,
+$$
+P(B|A)\times P(A) = P(A|B)\times P(B) \rightarrow P(B|A) = \frac{P(A|B)\times P(B) }{P(A)} = \frac{}{}
+$$
