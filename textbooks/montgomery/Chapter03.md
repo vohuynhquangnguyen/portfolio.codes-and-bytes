@@ -277,3 +277,124 @@ $$
 P(X = 15) = \frac{e^{-20}(20)^15}{15!} \approx 0.0516
 $$
 with $\lambda T = 10\times 2 = 20$ since on average there are 20 calls per two hours.
+
+d. 
+
+The probability that there are exactly 5 calls in 30 minutes is computed as:
+$$
+P(X = 5) = \frac{e^{-5}(5)^5}{5!} \approx 0.1755
+$$
+with $\lambda T = 10\times 0.5 = 5$ since on average there are 5 calls per 30 minutes (0.5 hours).
+
+### Problem 3.8.3
+Recall that a Poisson random variable has the following probability mass distribution:
+$$
+f_X(x) = \frac{e^{-\lambda T}(\lambda T)^x}{x!}
+$$
+with $\lambda T$ is the product of the rate parameter $\lambda$ and the unit size $T$.
+
+Given that $P(X=0)=0.05$, we can calculate $\lambda T$ as follows:
+$$
+P(X = 0) = \frac{e^{-\lambda T}(\lambda T)^0}{0!} = 0.05 \rightarrow \lambda T \approx 0.0513
+$$
+
+Therefore, the mean and variance of this random variable, which is  the number of customers who enter a
+store in an hour, is given as: $E_(X) = 0.0513$ and $V(X) = 0.0513$.
+
+### Problem 3.8.5
+Recall that a Poisson random variable has the following probability mass distribution:
+$$
+f_X(x) = \frac{e^{-\lambda T}(\lambda T)^x}{x!}
+$$
+with $\lambda T$ is the product of the rate parameter $\lambda$ and the unit size $T$. In this scenario, the density is one star per 16 cubic light years. Hence, $\lambda T = 1$ since the density is the reciprocal of the mean $E(X) = \lambda T$.
+
+a.
+
+The probability of two or more stars in 16 cubic
+light-years is computed as:
+$$
+P(X \geq 2) = 1 - P(X=0) - P(X=1) = 1 - \frac{e^{-1}(1)^0}{0!} - \frac{e^{-1}(1)^1}{1!} = 0.2642
+$$
+
+b.
+From the probability of one or more stars exceeds 0.95, we can calculate the new mean as follows:
+$$
+P(X\geq1) = 1 - P(X = 0) = 1 - \frac{e^{-\lambda T}(\lambda T)^0}{0!} = 0.95 \rightarrow \lambda T \approx 2.9957 \approx 3
+$$
+Therefore, the equivalent number of cubic light years is $16\times3 = 48$.
+
+### Problem 3.8.9
+Recall that a Poisson random variable has the following probability mass distribution:
+$$
+f_X(x) = \frac{e^{-\lambda T}(\lambda T)^x}{x!}
+$$
+with $E(X) = \lambda T$ is the mean of the Poisson random variable. In this scenario, the mean is 0.05 flaw per square foot, and the area under interest is 10 square feet. Therefore, the mean covering the entire area is $0.05\times10 = 0.5$.
+
+a.
+
+The probability that there are no surface flaws in an auto’s interior is computed as:
+$$
+P(X = 0) = \frac{e^{-0.5}(0.5)^0}{0!} \approx 0.6065 
+$$
+b. 
+
+If 10 cars are sold to a rental company, The probability that none of the 10 cars has any surface flaws is computed as:
+$$
+P(Y = 0) = \binom{10}{0}p^{10}(1 - p)^{0} = p^{10} = 0.6065 ^{10} \approx 0.00673
+$$
+given that $p$ is the probability that there are no surface flaws in an auto’s interior, and the number of flaws in each car is independent.
+
+c. 
+
+If 10 cars are sold to a rental company, the probability that at most 1 car has any surface flaws is computed as:
+$$
+P(Y \leq 1) \begin{aligned}
+&= \binom{10}{0}p^{10}(1 - p)^{0} = p^{10}  + \binom{10}{1}p^{10}(1 - p)^{1} \\
+&= \binom{10}{0}(0.6065)^{10}(1 - 0.6065)^{0} + \binom{10}{1}(0.6065)^{9}(1 - 0.6065)^{1} \\
+&\approx 0.0504 
+\end{aligned}
+$$
+
+### Problem 3.8.10
+Recall that a Poisson random variable has the following probability mass distribution:
+$$
+f_X(x) = \frac{e^{-\lambda T}(\lambda T)^x}{x!}
+$$
+with $E(X) = \lambda T$ is the mean of the Poisson random variable. In this scenario, the mean is given as 2.5 per cubic millimeter; hence, $\lambda T = 2.5$.
+
+a.
+
+The probability of at least one inclusion in a cubic millimeter is computed as:
+$$
+P(X\geq1) = 1 - P(X=0)= 1-\frac{e^{-2.5}(2.5)^0}{0!} \approx 0.9197
+$$
+
+b. 
+
+The probability of at least five inclusions in 5.0 cubic millimeters is computed as
+$$
+\begin{aligned}
+P(X\geq5) &= 1- P(X=0)-P(X=1)-P(X=2)-P(X=3)-P(X=4) \\
+&= 1 - \frac{e^{-12.5}(12.5)^0}{0!} - \frac{e^{-12.5}(12.5)^1}{1!} - \frac{e^{-12.5}(12.5)^2}{2!} - \frac{e^{-12.5}(12.5)^3}{3!} - \frac{e^{-12.5}(12.5)^4}{4!} \\
+&\approx 0.9447
+\end{aligned}
+$$
+with $E_{5}(X) = \lambda_{5}T_{5} = 2.5\times5 = 12.5$ is the mean number of inclusions per 5 cubic millimeters.
+
+c. 
+
+To find the volume of material to inspect such that the probability of
+at least one inclusion is 0.99, we need to find the new mean.
+$$
+P(X\geq1) = 1 - \frac{e^{-\lambda T}(\lambda T)^0}{0!} = 0.99 \rightarrow \lambda T \approx 4.60517
+$$
+
+Therefore, such volume is $4.60517/2.5\approx1.8421$.
+
+d. 
+
+We can find the new mean from the given probability as follows:
+$$
+= 1 - \frac{e^{-\lambda T}(\lambda T)^0}{0!} = 0.95 \rightarrow \lambda T \approx 2.99573
+$$
+Therefore, $E'(X) = 2.99573 \approx 3$.
