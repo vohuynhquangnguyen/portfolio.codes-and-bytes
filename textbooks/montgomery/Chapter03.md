@@ -212,6 +212,41 @@ $$
 
 d. 
 
+## Section 2.5
+### Problem 3.5.2
+Recall that the probability mass function of a binomial random variable is given as:
+$$
+f(x) = \binom{n}{x}p^x(1-p)^{n-x}
+$$
+with $n=10$ and $p=0.1$.
+
+a. 
+$$
+P(X ≤ 2) = \binom{10}{2}0.1^2(1-0.1)^{10-2} \approx 0.1937 
+$$ 
+
+b. 
+$$
+P(X > 8) = P(X = 9) + P(X = 10) = \binom{10}{9}0.1^9(1-0.1)^{10-9} + \binom{10}{10}0.1^{10}(1-0.1)^{10-10} \approx 0
+$$
+
+c. 
+$$
+P(X = 4) = \binom{10}{4}0.1^4(1-0.1)^{10-4} \approx 0.0112 
+$$
+
+d. 
+$$
+P(5 ≤ X ≤ 7) = P(X=6) = \binom{10}{6}0.1^6(1-0.1)^{10-6} \approx 0.000137781 
+$$
+
+### Problem 3.5.5
+The cumulative distriuvtion function of this random variable is given as:
+$$
+F(X) = \sum_x \binom{n}{x}p^x(1-p)^{n-x}
+$$
+with $n = 3$ and $p = 1/4$.
+
 ## Section 3.8
 ### Problem 3.8.1
 Recall that the probability mass function of a random variable that follows a Poisson distribution is given as:
