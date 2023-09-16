@@ -247,6 +247,91 @@ F(X) = \sum_x \binom{n}{x}p^x(1-p)^{n-x}
 $$
 with $n = 3$ and $p = 1/4$.
 
+### Problem 3.5.6
+The probability that the product operates (when there is no defective circuit in the product) is computed as:
+$$
+P(X = 0) = \binom{n}{x}p^x(1-p)^{n-x} = \binom{40}{0}(0.01)^0(1-0.01)^{40-0} \approx 0.669
+$$
+with $X$ is the number of defective circuits in the product, and $p$ is the probability that a single circuit becomes defective.
+
+### Problem 3.5.10
+
+a. 
+
+The probability that three individuals have conditions caused by outside factors is computed as:
+$$
+P(X = 3) = \binom{20}{3}(0.13)^3(0.87)^{20-3} \approx 0.2347
+$$
+
+b. 
+
+The probability that three or more individuals have conditions caused by outside factors is computed as:
+$$
+\begin{aligned}
+P(X\geq 3) &= 1 - P(X=0) - P(X=1) - P(X=2) \\
+&= 1 - \binom{20}{0}(0.13)^0(0.87)^{20-0} - \binom{20}{1}(0.13)^1(0.87)^{20-1} - \binom{20}{2}(0.13)^2(0.87)^{20-2} \\
+&\approx 0.4920
+\end{aligned}
+$$
+
+c. 
+
+The mean and standard deviation of the number of individuals with conditions caused by outside factors is given as:
+$$
+\begin{aligned}
+E(X) &= np = 20\times0.13 = 2.6 \\
+V(X) &= np(1-p) = 20\times0.13\times0.87 = 2.262
+\end{aligned}
+$$
+
+### Problem 3.5.12
+Let $X$ denote the number of parts in the sample of 20 that require rework. Since $X$ is a binomial random variable, we can agree that its probability mass function is given as:
+$$
+f(X) = \binom{20}{x}p^x(1-p)^{20-x}
+$$
+with $p$ is the probability that a part needs rework. In this scenario, 1% of the parts typically require rework means that $E(X) = np = 0.2$. Therefore, $p = 0.2/20 = 0.01$ and $V(X) = np(1-p) = (20)(0.01)(0.99) = 0.198$.
+
+a. 
+
+The value that equals to 3 standard deviations of the mean is $x = 0.2 + 3\times\sqrt{0.198} \approx 1.5349$. Thus, the probability that X exceeds its mean by more than 3 standard deviations can be computed as:
+$$
+P(X > 1.5349) \equiv P(X>2) = \binom{20}{2}0.01^2(1-0.01)^{20-2} \approx 0.0159 
+$$
+since $X$ is always an integer, i.e., $X\in \mathbb{N}$.
+
+b. 
+
+If the rework percentage increases to 4%, the new value for $p$ will be: $p = 0.8/20 = 0.04$. Therefore, the probability that $X$ exceeds 1 is given as:
+$$
+\begin{aligned}
+P(X>1) = 1 - P(X = 0) - P(X = 1) = 1 - \binom{20}{0}0.04^0(1-0.04)^{20} - \binom{20}{1}0.04^1(1-0.04)^{20-1}\approx 0.3536
+\end{aligned} 
+$$
+
+c. 
+
+If the rework percentage increases to 4%, the probability that $X$ exceeds 1 in at least one of the next five hours of samples is given as
+$$
+P(X>1|r\geq1) = 1 - P(X\leq1|r=0) = 1 - P(X\leq1)^5 = 1 -\Big(\binom{20}{0}0.04^0(1-0.04)^{20}\Big)^5 \approx 0.9831   
+$$
+with $r$ is the number of hour-samples.
+
+
+### Problem 3.5.13
+a.
+
+The probability that every passenger who shows up can take the flight is computed as:
+$$
+P(X = 120) = \binom{120}{120}(1 - 0.1)^{120}(0.1)^0 \approx 0.000003 
+$$
+
+b. 
+The probability that the flight departs with empty seats is computed as:
+$$
+P(X = 0) = \binom{120}{0}(1 - 0.1)^{0}(0.1)^{120} \approx 0.0
+$$
+
+
 ## Section 3.8
 ### Problem 3.8.1
 Recall that the probability mass function of a random variable that follows a Poisson distribution is given as:
