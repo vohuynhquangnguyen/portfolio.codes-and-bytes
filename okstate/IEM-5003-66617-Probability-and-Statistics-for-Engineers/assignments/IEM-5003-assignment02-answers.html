@@ -15008,64 +15008,27 @@ $$</p>
 <p>Therefore, $f_{x,y}(x, y)$ is joint probability mass function is indeed a joint probability mass function.</p>
 <p>a. In this scenario,
 $$
-P(X &lt; 2.5, Y &lt; 3) = \Big( P(X = 1, Y = 1) \Big) + \Big( P(X = 1.5, Y = 2)\Big) = 1/4 + 1/8 = 3/8
+P(X &lt; 2.5, Y &lt; 3) = f_{X,Y}(1.0, 1) + f_{X,Y}(1.5, 2) = 1/4 + 1/8 = 3/8
 $$</p>
 <p>b. In this scenario,
 $$
-P(X &lt; 2.5) = \Big(P(X = 1, Y = 1) \Big) + \Big(P(X = 1.5, Y = 2) \Big) + \Big(P(X = 1.5, Y = 3) \Big) = 1/4 + 1/8 + 1/4 = 5/8
+P(X &lt; 2.5) = f_{X,Y}(1.0, 1) + f_{X,Y}(1.5, 2) + f_{X,Y}(1.5, 3) = 1/4 + 1/8 + 1/4 = 5/8
 $$</p>
 <p>c. In this scenario,
 $$
-P(Y &lt; 3) = \Big(P(X = 1, Y = 1) \Big) + \Big(P(X = 1.5, Y = 2) \Big) = 1/4 + 1/8 = 3/8
+P(Y &lt; 3) = f_{X,Y}(1.0, 1) + f_{X,Y}(1.5, 2) = 1/4 + 1/8 = 3/8
 $$</p>
 <p>d. In this scenario,
 $$
-P(X &gt; 1.8, Y &gt; 4.7) = \Big(P(X = 3.0, Y = 5)\Big) = 1/8
-$$</p>
-<p>e. In this scenario, the marginal probability of $X$ is:
-$$
-\begin{cases}
-    P(X = 1) = f_{1, 1} = 1/4 \\
-    P(X = 1.5) = f_{1.5,2} + f_{1.5,3} = 1/4 + 1/8 = 3/8 \\
-    P(X = 2.5) = f_{2.5, 4} = 1/4 \\
-    P(X = 3.0) = f_{3.0, 5} = 1/8 \\
-\end{cases}
-$$
-Hence, $E(X)$ is given as
-$$
-E(X) = \sum x P(X = x) = 1\times\frac{1}{4} + 1.5\times\frac{3}{8} + 2.5\times\frac{1}{4} + 3.0\times\frac{1}{8} =  1.8125
-$$
-and $V(X)$ is given as 
+P(X &gt; 1.8, Y &gt; 4.7) = f_{X,Y}(2.5,4) + f_{X,Y}(3.0,5) = 1/4 + 1/8 = 3/8
+$$X</p>
+<p>e. In this scenario,
 $$
 \begin{aligned}
-    V(X) &amp;= \sum x^2 P(X = x) - \Big[E(X) \Big]^2 \\
-    &amp;= 1^2\times\frac{1}{4} + 1.5^2\times\frac{3}{8} + 2.5^2\times\frac{1}{4} + 3.0^2\times\frac{1}{8}  - 1.8125^2 \\
-    &amp;\approx 0.4961
-\end{aligned}
-$$</p>
-<p>On the other hand, the marginal probability of $Y$ is:
-$$
-\begin{cases}
-    P(Y = 1) = f_{1.0,1} = 1/4 \\
-    P(Y = 2) = f_{1.5,2} = 1/8 \\
-    P(Y = 3) = f_{1.5,3} = 1/4 \\
-    P(Y = 4) = f_{2.5,4} = 1/4 \\
-    P(Y = 5) = f_{3.0,5} = 1/8
-\end{cases}
-$$
-Hence, $E(Y)$ is given as
-$$
-\begin{aligned}
-    E(Y) &amp;= \sum y P(Y = y) = 1\times\frac{1}{4} + 2\times\frac{1}{8} + 3\times\frac{1}{4} + 4\times\frac{1}{4} + 5\times\frac{1}{8} \\
-    &amp; = 2.375
-\end{aligned}
-$$
-and $V(X)$ is given as
-$$
-\begin{aligned}
-    V(Y) &amp;= \sum y^2P(Y = y) - \Big[E(Y) \Big]^2 \\
-    &amp;= 1^2\times\frac{1}{4} + 2^2\times\frac{1}{8} + 3^2\times\frac{1}{4} + 4^2\times\frac{1}{4} + 5^2\times\frac{1}{8} - 2.375^2 \\
-    &amp;\approx 1.8594
+E(X) &amp;= \sum_xxf_{X}(x,y) = (1.0)(1/4) + (1.5)(1/8 + 1/4) + (2.5)(1/4) + (3.0)(1/8) = 1.8125 \\
+V(X) &amp;= E(X^2) - [E(X)]^2 = (1.0)^2(1/4) + (1.5)^2(1/8 + 1/4) + (2.5)^2(1/4) + (3.0)^2(1/8) - 1.8125^2 \approx 0.4961 \\
+E(Y) &amp;= \sum_yyf_{Y}(x,y) = (1)(1/4) + (2)(1/8) + (3)(1/4) + (4)(1/4) + (5)(1/8) = 2.875 \\
+V(Y) &amp;= E(Y^2) - [E(Y)]^2 = (1)^2(1/4) + (2)^2(1/8) + (3)^2(1/4) + (4)^2(1/4) + (5)^2(1/8) - 2.875^2 \approx 1.8594 
 \end{aligned}
 $$</p>
 <p>f. The marginal probability distribution of $X$ is given as:
@@ -15174,14 +15137,12 @@ $$</p>
 $$
 E(Y | X = 1.5) = \sum_y yf_{Y|X}(Y|X = 1.5) = 2\times\frac{2}{3} + 3\times\frac{2}{3} = \frac{10}{3} \approx 3.3333
 $$</p>
-<p>d. $X$ and $Y$ are independent when $f_{X,Y}(x, y) = f_X(x) \times f_Y(y)$. According to the given table, the marginal distributions are:
-$$
-\begin{cases}
-f_X(X = 1.0) = 1/4 \quad f_X(X = 1.5) = 1/8 + 1/4 = 3/8 \quad f_X(X = 2.5) = 1/4 \quad f_X(X = 3.0) = 1/8 \\
-f_Y(Y = 1) = 1/4 \quad f_Y(Y = 2) = 1/8 \quad f_Y(Y = 3) = 1/4 \quad f_Y(Y = 4) = 1/4 \quad f_Y(Y = 5) = 1/8 
-\end{cases}
-$$</p>
-<p>When $X = 1.0$ and $Y = 1$, $f_{X,Y}(X = 1.0, Y = 1) = 1/4$. This is not equal to $f_X(X = 1.0) \times f_Y(Y = 1) = (1/4)(1/4) = 1/16$. Therefore, $X$ and $Y$ are not independent.</p>
+<p>d. For $X$ and $Y$ to be independent these relationships must hold true:</p>
+<ul>
+<li>$P(X,Y) = P(X)\times P(Y)$</li>
+<li>$P(X|Y) = P(X)$</li>
+</ul>
+<p>In this scenario, $P(X = 1.5|Y = 2) = 1$ which is not equal to $P(X = 1.5) = 1/8 + 1/4 = 3/8$. On the other hand, when $X = 1.0$ and $Y = 1$, $f_{X,Y}(X = 1.0, Y = 1) = 1/4$. This is not equal to $f_X(X = 1.0) \times f_Y(Y = 1) = (1/4)(1/4) = 1/16$. Therefore, $X$ and $Y$ are not independent.</p>
 
 </div>
 </div>
