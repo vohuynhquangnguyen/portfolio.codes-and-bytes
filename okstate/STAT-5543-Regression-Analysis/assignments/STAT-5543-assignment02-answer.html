@@ -14669,7 +14669,7 @@ $$</p>
 $$
 \mathbf{Y} = \beta_0 + \beta_1\mathbf{X} + \mathbf{\epsilon}
 $$
-with $\epsilon$ is the error (or deviation) from the actual observations of the sale price $\mathbf{Y}$ to the predicted value of the sale price $\hat{\mathbf{Y}} = \beta_0 + \beta_1\mathbf{X}$.</p>
+with $\epsilon$ is the error (or deviation) from the actual observations of the sale price $\mathbf{Y}$ to the predicted value of the sale price $\hat{\mathbf{Y}} = \beta_0 + \beta_1\mathbf{X}$, and $\epsilon$ is assumed to be iid (independent and identically distributed) whose distribution is $\epsilon\sim N(0,1)$.</p>
 
 </div>
 </div>
@@ -14990,6 +14990,11 @@ with $\text{SS}_{xx} = \sum_{i = 0}^n (x_i - \bar{x})$. Therefore, $\text{SE}_{\
 <p>f. Find the predicted increase in the sale price for $5,000 increase in the market value.</p>
 <hr>
 <p><strong>Answers:</strong></p>
+<p>Denote $x_0$ is the initial value of the market value, then $x_1 = x_0 + 5000$ is the $5,000 increase in the market value. Thus, the predicted sale price for this increase in the market value is given as
+$$
+f(x_1) = f(x_0 + 5000) = \beta_1(x_0 + 5000) + \beta_0 = \beta_1\times x_0 + \beta_1\times5000 + \beta_0
+$$
+Therefore, we can say the predicted increase in the sale price is: $\beta_1\times5000 + \beta_0 \approx 7041.3537$</p>
 <p>The corresponding R-code is as follows:</p>
 
 </div>
@@ -15006,7 +15011,7 @@ with $\text{SS}_{xx} = \sum_{i = 0}^n (x_i - \bar{x})$. Therefore, $\text{SE}_{\
 <div class=" highlight hl-r"><pre><span></span><span class="n">X</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">5000</span>
 <span class="n">beta_0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="n">slr_model</span><span class="p">)</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">]</span>
 <span class="n">beta_1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="n">slr_model</span><span class="p">)</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span>
-<span class="n">Y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">beta_0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">beta_1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">X</span>
+<span class="n">Y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">beta_1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">X</span>
 <span class="n">Y</span>
 </pre></div>
 
@@ -15030,7 +15035,7 @@ with $\text{SS}_{xx} = \sum_{i = 0}^n (x_i - \bar{x})$. Therefore, $\text{SE}_{\
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-7042.71237459604
+7041.35369339969
 </div>
 
 </div>
