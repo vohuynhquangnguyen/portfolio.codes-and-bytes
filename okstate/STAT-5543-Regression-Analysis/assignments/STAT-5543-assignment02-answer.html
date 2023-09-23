@@ -15268,7 +15268,7 @@ sample estimates:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Test at 1% level the following hypothesis testing problem:
+<p>j. Test at 1% level the following hypothesis testing problem:
 $$
 \begin{cases}
 H_0: β_1 = 1 \\
@@ -15281,9 +15281,9 @@ $$</p>
 <p>We use the rejection threshold approach to evaluate our hypothesis test:</p>
 <ul>
 <li>We first compute the t-statistic of the model: $t_0 = \frac{\hat{\beta_1} - 1}{\text{SE}_{\beta_1}} \approx 11.0495 $.</li>
-<li>We then evaluate whether the computed t-statistic lies within the rejection region of the t-distribution with 74 degrees of freedom and $\alpha = 0.1$. The rejection region is $|t| &gt; t_{\alpha/2} = 1.6657$, and $|t_0| = 11.0495 &gt; t_{\alpha/2}$. Therefore, we reject the null hypothesis.</li>
+<li>We then evaluate whether the computed t-statistic lies within the rejection region of the t-distribution with 74 degrees of freedom and $\alpha = 0.01$. The rejection region is $|t| &gt; t_{\alpha/2} = 2.6439$, and $|t_0| = 11.0495 &gt; t_{\alpha/2}$. Therefore, we reject the null hypothesis.</li>
 </ul>
-<p>Based on this test, we can say these two variables (Market Value and Sales Price) are proportional to one another.</p>
+<p>Based on this test, we can say that Sales Price is proportional to Market Value.</p>
 
 </div>
 </div>
@@ -15297,7 +15297,7 @@ $$</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="n">beta_1_error</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="n">ssquared</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">SS_xx</span><span class="p">)</span>
-<span class="n">t_0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="nf">summary</span><span class="p">(</span><span class="n">slr_model</span><span class="p">)</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="o">/</span><span class="w"> </span><span class="n">beta_1_error</span>
+<span class="n">t_0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="nf">summary</span><span class="p">(</span><span class="n">slr_model</span><span class="p">)</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">beta_1_error</span>
 <span class="n">t_0</span>
 </pre></div>
 
