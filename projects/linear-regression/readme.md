@@ -13,6 +13,7 @@ The process of building a linear regression model involves the following steps:
 In the following sections, we will delve into three core topics of linear regression: simple linear regression (SLR), multiple linear regression (MLR), and logistic regression (LR).
 
 ## Simple Linear Regression (SLR)
-Here is a demo of how to construct a SLR model on a toy dataset: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/vohuynhquangnguyen/portfolio.codes-and-bytes/blob/main/projects/linear-regression/notebooks/simple_linear_regression.ipynb)
+Here is a demo of how to construct a SLR model on a toy dataset: 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/vohuynhquangnguyen/portfolio.codes-and-bytes/blob/main/projects/linear-regression/notebooks/simple_linear_regression.ipynb)
 
-###
+## Multiple linear regression (MLR)
