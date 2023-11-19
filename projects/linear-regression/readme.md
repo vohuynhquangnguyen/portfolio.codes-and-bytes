@@ -100,7 +100,7 @@ $$
 
 * Rejection criteria: we will reject $H_0$ when $T_{r} >  t_{1-\alpha / 2,n-2}$ or $T_{r} < t_{\alpha / 2,n-2}$.
 
-Additionally, we can quantify whether there is a significant linear association between $\mathbf{x}$ and $\mathbf{y}$ using the t-test. The t-test is a hypothesis test meaning we are testing whether a parameter 
+Additionally, we can quantify whether there is a significant linear association between $\mathbf{x}$ and $\mathbf{y}$ using the t-test. The t-test is a hypothesis test meaning we are testing whether a parameter is different from a hypothesized value. The steps of the t-test is as follows:
 * Hypotheses: $H_0: \beta_1 = 0$ versus $H_a: \beta_1 \neq 0$ at the significant level $\alpha = 0.05$.  We can interpret $H_0$ as follows: if $\beta_1$ is zero, $\mathbf{x}$ and $\mathbf{y}$ are completely unrelated.
 * Test statisitic: the test statistic follows the Studentized t-distribution with $n-2$ degree of freedom, and it is given as:
 
