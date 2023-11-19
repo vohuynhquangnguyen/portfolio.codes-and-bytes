@@ -1,5 +1,12 @@
 # Linear Regression from scratch
-## Overview
+
+## Table of Contents
+1. [Overview](#Overview)
+2. [Simple Linear Regression](#SLR)
+3. [Multiple Linear Regression](#MLR)
+4. [References](#Ref)
+
+## Overview <a name = 'Overview'></a>
 Linear regression is a fundamental algorithm in data science and machine learning. It is utilized for predicting continuous variables (also called dependent variables or responses) using one or more predictor variables (also known as independent variables or factors).
 
 The process of building a linear regression model involves the following steps:
@@ -12,7 +19,7 @@ The process of building a linear regression model involves the following steps:
 
 In the following sections, we will delve into three core topics of linear regression: simple linear regression (SLR), multiple linear regression (MLR), and logistic regression (LR).
 
-## Simple Linear Regression (SLR)
+## Simple Linear Regression (SLR) <a name = 'SLR'></a>
 ### Overview
 Suppose we want to model the monthly sales revenue $\mathbf{y}$ as a function of the advertising expenditure $\mathbf{x}$. One problem arises is that it is unlikely that we can predict the monthly sales exactly given the advertising expenditure. Hence, we propose a probabilistic model for sales revenue as follows:
 
@@ -116,4 +123,4 @@ Here is a demo of how to construct a SLR model on a toy dataset:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/vohuynhquangnguyen/portfolio.codes-and-bytes/blob/main/projects/linear-regression/notebooks/simple_linear_regression.ipynb)
 
-## Multiple linear regression (MLR)
+## Multiple linear regression (MLR) <a name = 'MLR'></a>
