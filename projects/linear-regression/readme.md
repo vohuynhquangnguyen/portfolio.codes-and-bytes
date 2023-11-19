@@ -59,7 +59,7 @@ To estimate unknow parameters (namely $\beta_0$ and $\beta_1$) of the regression
 
 $$
 \tag{1.4}
-\hat{\beta_1} = \frac{SS_{xy}}{SS_{xx}} = \frac{\sum_{i=1}^nx_iy_i - (\sum_{i=1}^nx_i\sum_{i=1}^ny_i)/n}{\sum_{i=1}^nx_i^2 - (\sum_{i=1}^nx_i)^2/n}
+\hat{\beta_1} = \frac{SS_{xy}}{SS_{xx}} = \Big(\sum_{i=1}^nx_iy_i - (\sum_{i=1}^nx_i\sum_{i=1}^ny_i)/n\Big) \div \Big(\sum_{i=1}^nx_i^2 - (\sum_{i=1}^nx_i)^2/n\Big)
 $$
 
 $$
@@ -85,7 +85,7 @@ To quantify the strength of the linear relationship $\mathbf{x}$ and $\mathbf{y}
 
 $$
 \tag{1.5}
-r = \frac{SS_{xy}}{\sqrt{SS_{xx}SS_{yy}}} = \frac{\sum_{i=1}^n(x_i - \bar{x})(y_i-\bar{y})}{\sqrt{\Big(\sum_{i=1}^n(x_i - \bar{x})^2\Big)\Big(\sum_{i=1}^n(y_i - \bar{y})^2\Big)}}
+r = \frac{SS_{xy}}{\sqrt{SS_{xx}SS_{yy}}} = \Big(\sum_{i=1}^n(x_i - \bar{x})(y_i-\bar{y})\Big) \div \Big(\sqrt{\big(\sum_{i=1}^n(x_i - \bar{x})^2\big) \big(\sum_{i=1}^n(y_i - \bar{y})^2\big)}\Big)
 $$
 
 * Properties of the Pearson correlation coefficient: the value of the measure $r$ is always between $-1$ and $+1$, regardless of the units of measurement used for the variables $\mathbf{x}$ and $\mathbf{y}$. In other words, it is scaleless.
@@ -97,6 +97,7 @@ We can test whether the true Pearson correlation coeffient of the probabilistic 
 $$
 T_r = r\sqrt{\frac{n-2}{1-r^2}}
 $$
+
 * Rejection criteria: we will reject $H_0$ when $T_{r} >  t_{1-\alpha / 2,n-2}$ or $T_{r} < t_{\alpha / 2,n-2}$.
 
 Additionally, we can quantify whether there is a significant linear association between $\mathbf{x}$ and $\mathbf{y}$ using the t-test. The t-test is a hypothesis test meaning we are testing whether a parameter 
