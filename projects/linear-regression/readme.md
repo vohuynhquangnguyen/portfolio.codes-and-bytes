@@ -59,12 +59,13 @@ To estimate unknow parameters (namely $\beta_0$ and $\beta_1$) of the regression
 
 $$
 \tag{1.4}
-\begin{aligned}
-\hat{\beta_1} &= \frac{SS_{xy}}{SS_{xx}} = \frac{\sum_{i=1}^nx_iy_i - (\sum_{i=1}^nx_i\sum_{i=1}^ny_i)/n}{\sum_{i=1}^nx_i^2 - (\sum_{i=1}^nx_i)^2/n}  \\
-\hat{\beta_0} &= E(\mathbf{y}) - \hat{\beta_1}E(\mathbf{x}) = \frac{1}{n}\sum_{i=1}^ny_i - \hat{\beta_1}\frac{1}{n}\sum_{i=1}^nx_i\\
-\end{aligned} 
+\hat{\beta_1} = \frac{SS_{xy}}{SS_{xx}} = \frac{\sum_{i=1}^nx_iy_i - (\sum_{i=1}^nx_i\sum_{i=1}^ny_i)/n}{\sum_{i=1}^nx_i^2 - (\sum_{i=1}^nx_i)^2/n}
 $$
 
+$$
+\tag{1.5}
+\hat{\beta_0} = E(\mathbf{y}) - \hat{\beta_1}E(\mathbf{x}) = \frac{1}{n}\sum_{i=1}^ny_i - \hat{\beta_1}\frac{1}{n}\sum_{i=1}^nx_i
+$$
 * Properties of the least-squares estimators: both the estimators $\hat{\beta_1}$ and $\hat{\beta_0}$ are **unbiased estimators** of the true population slope $\beta_1$ and the true population intercept $\beta_0$.
 
 ### Assumptions
