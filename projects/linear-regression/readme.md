@@ -54,7 +54,7 @@ $$
 
 Noted that there is a difference between $\pmb{\hat{\beta}}$ - which is our estimated parameter, and $\pmb{{\beta}}$ - which is our true population parameter: $\pmb{\hat{\beta}}$ is the estimation of $\pmb{{\beta}}$ that we obtain from analysing the dataset, which is a subset of the population.
 
-To estimate unknow parameters (namely $\beta_0$ and $\beta_1$) of the regression models, we use the least-square method:
+To estimate unknow parameters namely $\beta_0$ and $\beta_1$ of the regression models, we use the least-square method:
 * Formulation:
 
 $$
@@ -67,6 +67,13 @@ $$
 \hat{\beta_0} = E(\mathbf{y}) - \hat{\beta_1}E(\mathbf{x}) = \frac{1}{n}\sum_{i=1}^ny_i - \hat{\beta_1}\frac{1}{n}\sum_{i=1}^nx_i
 $$
 * Properties of the least-squares estimators: both the estimators $\hat{\beta_1}$ and $\hat{\beta_0}$ are **unbiased estimators** of the true population slope $\beta_1$ and the true population intercept $\beta_0$.
+
+Having estimated the slope and the intercept, we need to estimate the variance of the error terms $\sigma^2$, which is done as follows:
+$$
+s_{\pmb{\epsilon}}^2 = \frac{SS_E}{\text{DOF}} = \frac{SS_E}{n-2} = \frac{\sum_{i=1}^ny_i^2 - n\bar{y}^2}{n-2}
+$$
+with $\text{DOF}$ is the degree of freedom (d.o.f.). Since we use 2 d.o.f. to estimate the slope and the intercept of the regression line, only $n-2$ d.o.f. left for the error variance estimation. We refer $s_{\pmb{\epsilon}}$ as the estimated standard error of the regression model. We usually annotate the estimated standard error simply as $s$.
+
 
 ### Assumptions
 When constructing the SLR model, we underline the following crucial assumptions:
@@ -117,9 +124,44 @@ $$
 $$
 
 #### Normality of residuals
+To validate whether our residuals are normally distributed, we can either construct a normal quantile-quantile plot and/or conduct the Shapiro-Wilk test on the standardized residuals. If the standard residuals fall approximately along a straight line, which represents the theoretical value from the hypothesized distribution $\mathcal{N}(0,\sigma^2)$, in the normality plot, we conclude that there is no severe departure from normality.
 
+#### Homoscedasticity
+To validate whether our residuals are homoscedastic, we can either construct a residual-versus-fitted plot and/or conduct a hypothesis test on the error variances. One popular and intuitive hypothesis test is the Goldfeld-Quandt test. The procedure of the Goldfeld-Quandt test, explained in a simplified manner is as follows:
+* We divide our dataset into two equal subsets $N_1$ and $N_2$.
+* In each subset, we construct a SLR model namely $\mathbf{y}_1 = \hat{\alpha}_0 + \hat{\alpha}_1\mathbf{x}_1$ and $\mathbf{y}_2 = \hat{\gamma}_0 + \hat{\gamma}_1\mathbf{x}_2$.
+* For each model, we quantify the estimated error variance namely $s_1^2$ and $s_2^2$.
+* Finally, we conduct the test of equal variances for these estimators. 
 
+#### Leveraged and influential data points
+Ideally, the dataset that we used to construct our SLR model should not have any outlier. Nevertheless, 
 
+#### Utility of the model
+In the context of linear regression, the utility of a model is the significance of regression. In other words, it represents how well our model describes the relationship between the response and the predictor. To analyze the utility of a linear regression model, we conduct the analysis of variance (ANOVA):
+* We first partition the total variability in the response variable $\mathbf{y}$ into two meaningful components:
+$$
+SS_T = SS_R + SS_E 
+$$
+with $SS_T$ represents the total variability, a.k.a. the total sum of squares; $SS_R$ represents the regression variability, a.k.a. the regression sum of squares; $SS_E$ represents the error variability, a.k.a. error sum of squares. $SS_R$ and $SS_E$ are computed as follows:
+$$
+\begin{aligned}
+SS_R &= \sum_{i=1}^n(\hat{y_i} - \bar{y})^2 \\
+SS_E &= \sum_{i=1}^n(y_i - \hat{y_i})^2
+\end{aligned}
+$$
+
+* We then compute the coefficient of determination $R^2$, interpreted as the proportion of variability in the response that is explained by our model: 
+$$
+R^2 = \frac{SS_R}{SS_T} = 1 - \frac{SS_E}{SS_T}
+$$
+
+Interestingly, in SLR, the test for significance of regression is the same as the test whether the slope $\beta_1$ is zero, albeit using a different test statistic. The test is as follows:
+* Hypotheses: $H_0: \beta_1 = 0 | \beta_0$ versus $H_0: \beta_1 \neq 0 | \beta_0$. We can interpret $H_0$ as we are assuming that our model is as good as the intercept-only model.
+* Test statistic: the test statistic follows the F-distribution with $1$ d.o.f in the numerator and $n-2$ d.o.f in the denonimator, and it is given as:
+$$
+F_0 = \frac{SS_R/1}{SS_E/(n - 2)}=\frac{R^2}{(1-R^2)/(n -2)}  
+$$
+* Rejection criteria: We will reject $H_0$ when $F_0 >  f_{1-\alpha / 2,1,n-2}$.
 
 ### Example
 Here is a demo of how to construct a SLR model on a toy dataset:
