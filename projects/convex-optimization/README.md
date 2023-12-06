@@ -99,3 +99,27 @@ Basically speaking, what we are doing when solving Problem $\text{P(3)}$ is to f
 
 ### Example
 This demonstration showcases the application of the Alternating Direction Method of Multipliers (ADMM) in solving a variety of linear optimization problems. It is important to note that the problems presented in this demo are known to have optimal solutions.
+
+* First problem:
+$$
+\max \quad \zeta = 2x_1 + 5x_2; \\
+\quad s.t.: 
+\begin{cases}
+4x_1 + x_2 ≤ 28 \\
+x_1 + 4x_2 ≤ 27 \\
+x_1 − x_2 ≤ 1 \\
+x_1, x_2 ≥ 0
+\end{cases}
+$$
+
+* Second problem:
+$$
+\max \quad \zeta = 16x_1 + 19x_2 + 23x_3 + 28x_4; \\
+\quad s.t.: 
+\begin{cases}
+2x_1 + 3x_2 + 4x_3 + 5x_4 ≤ 7 \\
+x_i \geq 0, \forall i = 1, 2, 3, 4
+\end{cases}
+$$
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/vohuynhquangnguyen/portfolio.codes-and-bytes/blob/main/projects/convex-optimization/notebooks/admm.ipynb)
