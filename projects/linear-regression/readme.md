@@ -135,6 +135,7 @@ $$
 \tag{1.8}
 T_{\beta_0} = \frac{\hat{\beta_0} - \beta_{0,0}}{\text{SE}(\hat{\beta_0})} = \frac{\hat{\beta_0} - \beta_{0,0}}{\sqrt{s^2(1/n + \bar{x}/SS_{xx})}}
 $$
+
 with $\bar{x}$ is the average of the predictor values.
 
 * Rejection criteria: we will reject $H_0$ when $T_{\beta_1} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_1} < t_{\alpha / 2,n-2}$.
