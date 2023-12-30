@@ -134,12 +134,12 @@ with $\beta_{1,0}$ is the hypothesized value, which is zero.
 
 ```math
 \tag{1.8}
-\text{CI}_{\beta_1} &= \hat{\beta_1} \pm |t_{\alpha/2, n-2}|\sqrt{\frac{s_\epsilon^2}{S_{xx}}}
+\text{CI}_{\beta_1} = \hat{\beta_1} \pm |t_{\alpha/2, n-2}|\sqrt{\frac{s_\epsilon^2}{S_{xx}}}
 ```
 
 ```math
 \tag{1.9}
-\text{CI}_{\beta_0} &= \hat{\beta_0} \pm |t_{\alpha/2, n-2}|\sqrt{s_\epsilon^2\Big(\frac{1}{n}+\frac{\bar{x}^2}{S_{xx}}}\Big) \\
+\text{CI}_{\beta_0} = \hat{\beta_0} \pm |t_{\alpha/2, n-2}|\sqrt{s_\epsilon^2\Big(\frac{1}{n}+\frac{\bar{x}^2}{S_{xx}}}\Big) \\
 ```
 
 #### Normality of residuals
