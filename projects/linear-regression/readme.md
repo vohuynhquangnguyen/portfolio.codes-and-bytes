@@ -129,13 +129,6 @@ $$
 with $\beta_{1,0}$ is the hypothesized value, which is zero.
 
 * Rejection criteria: we will reject $H_0$ when $T_{\beta_1} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_1} < t_{\alpha / 2,n-2}$.
-* Confidence interval of $\beta_1$: the confidence interval is a range of values where the true population value is likely to fall. Thus, the $100(1-\alpha)\%$ confidence interval of $\beta_1$ is given as:
-
-$$
-\tag{1.8}
-$$
-
-with $t_{\alpha/2,n-2}$ is the lower-tailed critical value derived from the corresponding Studentized t-distribution.
 
 #### Normality of residuals
 To validate whether our residuals are normally distributed, we can either construct a normal quantile-quantile plot and/or conduct the Shapiro-Wilk test on the standardized residuals. If the standard residuals fall approximately along a straight line, which represents the theoretical value from the hypothesized distribution $\mathcal{N}(0,\sigma^2)$, in the normality plot, we conclude that there is no severe departure from normality.
@@ -167,15 +160,12 @@ $$
 h_{ii} = \frac{1}{n} + \frac{x_i -\bar{x}}{SS_{xx}}
 $$
 
-* The **Cook's distance** of a data point is a measure of how influential that data point is by quantifying its effect on the linear model if omitted from the analysis. As a result, Cook's distance is a function of both the leverage and the magnitude of the residual. The Cook's distance of the $i$-th observation is given as:
+The **Cook's distance** of a data point is a measure of how influential that data point is by quantifying its effect on the linear model if omitted from the analysis. As a result, Cook's distance is a function of both the leverage and the magnitude of the residual. The Cook's distance of the $i$-th observation is given as:
 
 $$
 \tag{1.11}
 D_i = \frac{(y_i-\hat{y}_{(i)})^2}{2\times\text{MSE}} \Bigg[\frac{h_{ii}}{(1-h_{ii})^2}\Bigg]
 $$
-
-with $y_i-\hat{y}_{(i)}$ is the difference between the
-observed response $y_i$ and the predicted value $\hat{y}_{(i)}$ obtained when the $i$-th observation is deleted from the analysis. Thus, an observation with Cook's distance larger than three times the mean Cook's distance might be an outlier.  As a rule of thumb, if $D_i$  is greater than 0.5, then the $i$-th data point is worthy of further investigation as it may be influential. If $D_i$ is greater than 1, then the $i$-th data point is quite likely to be influential. If $D_i$ stands out from the other Cook's distance values in addition to being greater than 1, it is almost certainly influential.
 
 
 #### Utility of the model
@@ -197,7 +187,7 @@ $$
 R^2 = \frac{SS_R}{SS_T} = 1 - \frac{SS_E}{SS_T}
 $$
 
-Interestingly, in SLR, the test for significance of regression is the same as the test whether the slope $\beta_1$ is zero, albeit using a different test statistic. The test is as follows:
+Interestingly, in SLR, the test for the significance of the regression is the same as the test for whether the slope $\beta_1$ is zero, albeit using a different test statistic. The test is as follows:
 * Hypotheses: $H_0: \beta_1 = 0 | \beta_0$ versus $H_0: \beta_1 \neq 0 | \beta_0$. We can interpret $H_0$ as we are assuming that our model is as good as the intercept-only model.
 * Test statistic: the test statistic follows the F-distribution with $1$ d.o.f in the numerator and $n-2$ d.o.f in the denonimator, and it is given as:
 $$
