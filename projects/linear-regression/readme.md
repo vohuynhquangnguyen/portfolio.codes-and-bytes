@@ -132,7 +132,7 @@ with $\beta_{1,0}$ is the hypothesized value, which is zero.
 * Confidence interval of $\beta_1$: the confidence interval is a range of values where the true population value is likely to fall. Thus, the $100(1-\alpha)\%$ confidence interval of $\beta_1$ is given as:
 
 $$
-\tag{1.8}\text{CI}_{\alpha/2} = \hat{\beta_1} \pm |t_{\alpha/2,n-2}|\sqrt{s^2/SS_{xx}}
+\tag{1.8}
 $$
 
 with $t_{\alpha/2,n-2}$ is the lower-tailed critical value derived from the corresponding Studentized t-distribution.
