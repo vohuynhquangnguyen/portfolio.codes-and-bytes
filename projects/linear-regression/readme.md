@@ -76,8 +76,8 @@ Having estimated the slope $\beta_1$ and the intercept $\beta_0$, we need to est
 
 $$
 \begin{aligned}
-s_{\pmb{\epsilon}}^2 &= \frac{SS_E}{\text{DOF}} 
-&= \frac{SS_E}{n-2} = \frac{\sum_{i=1}^ny_i^2 - n\bar{y}^2}{n-2}
+s_{\pmb{\epsilon}}^2 &= \frac{SS_E}{\text{DOF}} \\
+&= \frac{SS_E}{n-2} = \Bigg[\sum_{i=1}^n y_i^2 - n\bar{y}^2\Bigg]\div\Bigg[n-2\Bigg]
 \end{aligned}
 $$
 
@@ -126,14 +126,20 @@ Additionally, we can quantify whether there is a significant linear association 
 
 $$
 \tag{1.7}
-T_{\beta_1} = \frac{\hat{\beta_1} - \beta_{1,0}}{\text{se}(\hat{\beta_1})} = \frac{\hat{\beta_1} - \beta_{1,0}}{\sqrt{s^2/SS_{xx}}}
+T_{\beta_1} = \frac{\hat{\beta_1} - \beta_{1,0}}{\text{SE}(\hat{\beta_1})} = \frac{\hat{\beta_1} - \beta_{1,0}}{\sqrt{s^2/SS_{xx}}}
 $$
 
-with $\beta_{1,0}$ is the hypothesized value, which is zero.
+with $\beta_{1,0}$ is the hypothesized value, which is zero. Similarly, the test statistic for $\beta_0$ is given as:
+
+$$
+\tag{1.8}
+T_{\beta_0} = \frac{\hat{\beta_0} - \beta_{0,0}}{\text{SE}(\hat{\beta_0})} = \frac{\hat{\beta_0} - \beta_{0,0}}{\sqrt{s^2(1/n + \bar{x}/SS_{xx})}}
+$$
+with $\bar{x}$ is the average of the predictor values.
 
 * Rejection criteria: we will reject $H_0$ when $T_{\beta_1} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_1} < t_{\alpha / 2,n-2}$.
 
-* Confidence interval for $\beta_1$ and $\beta_0$: the confidence interval is an interval where the true value of a parameter most likely lies in if we repeat the estimation many times with different samples drawing from the same population. Hence, the $100(1-\alpha)\%$ confidence interval of respective $\beta_1$ and $\beta_0$ is given as:
+* Confidence interval for $\beta_1$ and $\beta_0$: the confidence interval is an interval where the true value of a parameter most likely lies if we repeat the estimation many times with different samples drawn from the same population. Hence, the $100(1-\alpha)\%$ confidence interval of respective $\beta_1$ and $\beta_0$ is given as:
 
 ```math
 \tag{1.8}
