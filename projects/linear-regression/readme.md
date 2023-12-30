@@ -52,14 +52,17 @@ $$
 E(\mathbf{y}) \equiv \hat{\mathbf{y}} = \hat{\beta_0} + \hat{\beta_1}\mathbf{x}
 $$
 
-Noted that there is a difference between $\pmb{\hat{\beta}}$ - which is our estimated parameter, and $\pmb{{\beta}}$ - which is our true population parameter: $\pmb{\hat{\beta}}$ is the estimation of $\pmb{{\beta}}$ that we obtain from analyzing the dataset, which is a subset of the population.
+Noted that there is a difference between $\pmb{\hat{\beta}}$ and $\pmb{{\beta}}$: $\pmb{\hat{\beta}}$ are estimated parameters, while $\pmb{{\beta}}$ are true and unknown population parameter. We obtain $\pmb{\hat{\beta}}$ by analysing the dataset, which is a subset of the population.
 
-To estimate unknown parameters namely $\beta_0$ and $\beta_1$ of the regression models, we use the least-square method:
+To estimate unknow parameters namely $\beta_0$ and $\beta_1$ of the regression models, we use the least-square method:
 * Formulation:
 
 $$
 \tag{1.4}
-\hat{\beta_1} = \frac{SS_{xy}}{SS_{xx}} = \Big(\sum_{i=1}^nx_iy_i - (\sum_{i=1}^nx_i\sum_{i=1}^ny_i)/n\Big) \div \Big(\sum_{i=1}^nx_i^2 - (\sum_{i=1}^nx_i)^2/n\Big)
+\begin{aligned}
+\hat{\beta_1} &= \frac{SS_{xy}}{SS_{xx}} \\
+&= \Bigg[\sum_{i=1}^nx_iy_i - (\sum_{i=1}^nx_i\sum_{i=1}^ny_i)/n\Bigg]\div \Bigg[\sum_{i=1}^nx_i^2 - (\sum_{i=1}^nx_i)^2/n\Bigg] \\
+\end{aligned}
 $$
 
 $$
@@ -68,59 +71,64 @@ $$
 $$
 * Properties of the least-squares estimators: both the estimators $\hat{\beta_1}$ and $\hat{\beta_0}$ are **unbiased estimators** of the true population slope $\beta_1$ and the true population intercept $\beta_0$.
 
-Having estimated the slope and the intercept, we need to estimate the variance of the error terms $\sigma^2$, which is done as follows:
+Having estimated the slope $\beta_1$ and the intercept $\beta_0$, we need to estimate the variance of the error terms $\sigma^2_{\epsilon}$, which is done as follows:
 $$
 s_{\pmb{\epsilon}}^2 = \frac{SS_E}{\text{DOF}} = \frac{SS_E}{n-2} = \frac{\sum_{i=1}^ny_i^2 - n\bar{y}^2}{n-2}
 $$
-
-with $\text{DOF}$ is the degree of freedom (d.o.f.). Since we use 2 d.o.f. to estimate the slope and the intercept of the regression line, only $n-2$ d.o.f. left for the error variance estimation. We refer $s_{\pmb{\epsilon}}$ as the estimated standard error of the regression model. We usually annotate the estimated standard error simply as $s$.
+with $\bar{y} = \frac{1}{n}\sum_{i=1}^n y_i$ is the mean all responses in the dataset, and $\text{DOF}$ is the degree of freedom (d.o.f.). Since we use 2 d.o.f. to estimate the slope and the intercept of the regression line, only $n-2$ d.o.f. left for the error variance estimation. We refer $s_{\pmb{\epsilon}}$ as the estimated standard error of the regression model. We usually annotate the estimated standard error simply as $s$.
 
 
 ### Assumptions
 When constructing the SLR model, we underline the following crucial assumptions:
 * The relationship between the predictor ($\mathbf{x}$) and the response ($\mathbf{y}$) is linear. In other words, there is a **linear association** between $\mathbf{x}$ and $\mathbf{y}$.
-* The errors, which are defined as the difference between the observed and the estimated values of the response $\epsilon_ i = y_i - \hat{y}_i$, are **independent and identically distributed**.
+* The errors, which is defined as the difference between the observed and the estimated values of the reponse $\epsilon_ i = y_i - \hat{y}_i$, are **independent and identically distributed**.
 * The errors are **normally distributed** with a mean of zero and a quantified standard deviation. In other words, $\pmb{\epsilon} \sim \mathcal{N}(0,\sigma^2)$.
 * The errors have **equal variances** (homoscedastic). In other words, the variability in the response does not increase as the value of the predictor increases. 
 * The response is a random variable, while the predictor is a non-random variable.
-* There is no presence of highly leveraged and/or highly influential observations.
+* There is **no presence of highly leverage and/or highly influential observations**.
 
 ### Hypothesis test
-In the context of SLR, we use hypothesis tests as a holistic approach to (1) verify the validity of each assumption we made above, and (2) statistically check the utility of our model.
+In the context of SLR, we use hypothesis tests as a holistic approach to (1) verify the validity of each assumption we made above, and (2) statiscally check the utility of our model.
 
 #### Linear association between predictor and response
 To quantify the strength of the linear relationship $\mathbf{x}$ and $\mathbf{y}$ given the dataset, we use a measure called **Pearson correlation coefficient**. In SLR, the **Pearson correlation coefficient** between the response and the predictor is given as:
 
 $$
 \tag{1.5}
-r = \frac{SS_{xy}}{\sqrt{SS_{xx}SS_{yy}}} = \Big(\sum_{i=1}^n(x_i - \bar{x})(y_i-\bar{y})\Big) \div \Big(\sqrt{\big(\sum_{i=1}^n(x_i - \bar{x})^2\big) \big(\sum_{i=1}^n(y_i - \bar{y})^2\big)}\Big)
+\begin{aligned}
+r &= \frac{SS_{xy}}{\sqrt{SS_{xx}SS_{yy}}} \\
+&= \Bigg[\sum_{i=1}^n(x_i - \bar{x})(y_i-\bar{y})\Bigg] \div \Bigg[\sqrt{\big(\sum_{i=1}^n(x_i - \bar{x})^2\big) \big(\sum_{i=1}^n(y_i - \bar{y})^2\big)}\Bigg]
+\end{aligned}
 $$
 
 * Properties of the Pearson correlation coefficient: the value of the measure $r$ is always between $-1$ and $+1$, regardless of the units of measurement used for the variables $\mathbf{x}$ and $\mathbf{y}$. In other words, it is scaleless.
 
-We can test whether the true Pearson correlation coefficient of the probabilistic model,$\mathbf{y} = f(\mathbf{x}) + \pmb{\epsilon}$, is different from a hypothesized value, which we usually define to be zero, using the following steps:
+We can test whether the true Pearson correlation coeffient of the probabilistic model, $\mathbf{y} = f(\mathbf{x}) + \pmb{\epsilon}$, is different from a hypothesized value, which we usually define to be zero, using the following steps:
 * Hypotheses: $H_0: \rho = 0$ versus $H_a: \rho \neq 0$ at the significant level $\alpha = 0.05$.
-* Test statistic: the test statistic follows the Studentized t-distribution with $n-2$ degree of freedom, and it is given as:
+* Test statisitic: the test statistic follows the Studentized t-distribution with $n-2$ degree of freedom, and it is given as:
 
 $$
+\tag{1.6}
 T_r = r\sqrt{\frac{n-2}{1-r^2}}
 $$
 
 * Rejection criteria: we will reject $H_0$ when $T_{r} >  t_{1-\alpha / 2,n-2}$ or $T_{r} < t_{\alpha / 2,n-2}$.
 
-Additionally, we can quantify whether there is a significant linear association between $\mathbf{x}$ and $\mathbf{y}$ using the t-test. The t-test is a hypothesis test meaning we are testing whether a parameter is different from a hypothesized value. The steps of the t-test are as follows:
+Additionally, we can quantify whether there is a significant linear association between $\mathbf{x}$ and $\mathbf{y}$ using the t-test. The t-test is a hypothesis test meaning we are testing whether a parameter is different from a hypothesized value. The steps of the t-test is as follows:
 * Hypotheses: $H_0: \beta_1 = 0$ versus $H_a: \beta_1 \neq 0$ at the significant level $\alpha = 0.05$.  We can interpret $H_0$ as follows: if $\beta_1$ is zero, $\mathbf{x}$ and $\mathbf{y}$ are completely unrelated.
-* Test statistic: the test statistic follows the Studentized t-distribution with $n-2$ degree of freedom, and it is given as:
+* Test statisitic: the test statistic follows the Studentized t-distribution with $n-2$ degree of freedom, and it is given as:
 
 $$
+\tag{1.7}
 T_{\beta_1} = \frac{\hat{\beta_1} - \beta_{1,0}}{\text{se}(\hat{\beta_1})} = \frac{\hat{\beta_1} - \beta_{1,0}}{\sqrt{s^2/SS_{xx}}}
 $$
 
 with $\beta_{1,0}$ is the hypothesized value, which is zero.
 * Rejection criteria: we will reject $H_0$ when $T_{\beta_1} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_1} < t_{\alpha / 2,n-2}$.
-* Confidence interval of $\beta_1$: the confidence interval is a range of values where the true population value is likely to fall into. Thus, the $100(1-\alpha)\%$ confidence interval of $\beta_1$ is given as:
+* Confidence interval of $\beta_1$: the confidence interval is basically a range of values where the true population value is likely fell into. Thus, the $100(1-\alpha)\%$ confidence interval of $\beta_1$ is given as:
 
 $$
+\tag{1.8}
 \text{CI}_{\alpha/2} = \hat{\beta_1} \pm |t_{\alpha/2,n-2}|\sqrt{s^2/SS_{xx}}
 $$
 
@@ -130,15 +138,41 @@ To validate whether our residuals are normally distributed, we can either constr
 #### Homoscedasticity
 To validate whether our residuals are homoscedastic, we can either construct a residual-versus-fitted plot and/or conduct a hypothesis test on the error variances. One popular and intuitive hypothesis test is the Goldfeld-Quandt test. The procedure of the Goldfeld-Quandt test, explained in a simplified manner is as follows:
 * We divide our dataset into two equal subsets $N_1$ and $N_2$.
-* In each subset, we construct a SLR model namely $\mathbf{y}_1 = \hat{\alpha}_0 + \hat{\alpha}_1\mathbf{x}_1$ and $\mathbf{y}_2 = \hat{\gamma}_0 + \hat{\gamma}_1\mathbf{x}_2$.
+* In each subset, we construct a SLR model. Hence, we have two models namely $\mathbf{y}_1 = \hat{\alpha}_0 + \hat{\alpha}_1\mathbf{x}_1$ and $\mathbf{y}_2 = \hat{\gamma}_0 + \hat{\gamma}_1\mathbf{x}_2$.
 * For each model, we quantify the estimated error variance namely $s_1^2$ and $s_2^2$.
 * Finally, we conduct the test of equal variances for these estimators. 
 
+The test of equal variances in the context of the Goldfeld-Quandt test consists of the following steps:
+* Hypotheses: $H_0: s_1^2 = s_2^2$ versus $H_a: s_1^2 \neq s_2^2$.
+* Test statistic: the test statistic follows the F-distribution with $n_1 - 1$ numerator d.o.f. and $n_2 - 1$ denominator d.o.f. (in the case of the Goldfeld-Quandt test, $n_1 = n_2 = n/2$), and is given as:
+$$
+\tag{1.9}
+F_0 = \frac{s_1^2}{s^2_2} = \frac{MSE_1}{MSE_2}
+$$
+* Rejection criteria: we will reject $H_0$ when $F_0 > f_{1-\alpha/2,n_1-1,n_2-1}$ or $F_0 < f_{\alpha/2,n_1-1,n_2-1}$.
+
 #### Leveraged and influential data points
-Ideally, the dataset that we used to construct our SLR model should not have any outliers. Nevertheless, 
+Ideally, the dataset that we used to construct our SLR model should not have any outlier. Nevertheless, if there are outliers presented in our dataset, we need to quantify their respective leverage and Cook's distance.
+* **Leverage of a data point** is a measure of its ability to pull the regression line towards itself. The leverage of a data point depends entirely on its $x$-value: if the $x$-value of a data point  is far removed from the center of all $x$-values, then that data point will have a high leverage. In the context of SLR, a leverage of the $i$-th observation is given as:
+
+$$
+\tag{1.10}
+h_{ii} = \frac{1}{n} + \frac{x_i -\bar{x}}{SS_{xx}}
+$$
+
+* The **Cook's distance** of a data point is a measure of how influential that data point is by quantifying its effect on the linear model if omitted from the analysis. As a result, the Cook's distance is a function of both the leverage and the magnitude of the residual. The Cook's distance of the $i$-th observation is given as:
+
+$$
+\tag{1.11}
+D_i = \frac{(y_i-\hat{y}_{(i)})^2}{2\times\text{MSE}} \Bigg[\frac{h_{ii}}{(1-h_{ii})^2}\Bigg]
+$$
+
+with $y_i-\hat{y}_{(i)}$ is the difference between the
+observed response $y_i$ and the predicted value $\hat{y}_{(i)}$ obtained when the $i$-th observation is deleted from the analysis. Thus, an observation with Cook's distance larger than three times the mean Cook's distance might be an outlier.  As a rule of thumb, if $D_i$  is greater than 0.5, then the $i$-th data point is worthy of further investigation as it may be influential. If $D_i$ is greater than 1, then the $i$-th data point is quite likely to be influential. If $D_i$ stands out from the other Cook's distance values in addition to being greater than 1, it is almost certainly influential.
+
 
 #### Utility of the model
-In the context of linear regression, the utility of a model is the significance of regression. In other words, it represents how well our model describes the relationship between the response and the predictor. To analyze the utility of a linear regression model, we analyze variance (ANOVA):
+In the context of linear regression, the utility of a model is the significance of regression. In other words, it represents how well our model describes the relationship between the response and the predictor. To analyze the utility of a linear regression model, we conduct the analysis of variance (ANOVA):
 * We first partition the total variability in the response variable $\mathbf{y}$ into two meaningful components:
 $$
 SS_T = SS_R + SS_E 
@@ -156,7 +190,7 @@ $$
 R^2 = \frac{SS_R}{SS_T} = 1 - \frac{SS_E}{SS_T}
 $$
 
-Interestingly, in SLR, the test for the significance of the regression is the same as the test whether the slope $\beta_1$ is zero, albeit using a different test statistic. The test is as follows:
+Interestingly, in SLR, the test for significance of regression is the same as the test whether the slope $\beta_1$ is zero, albeit using a different test statistic. The test is as follows:
 * Hypotheses: $H_0: \beta_1 = 0 | \beta_0$ versus $H_0: \beta_1 \neq 0 | \beta_0$. We can interpret $H_0$ as we are assuming that our model is as good as the intercept-only model.
 * Test statistic: the test statistic follows the F-distribution with $1$ d.o.f in the numerator and $n-2$ d.o.f in the denonimator, and it is given as:
 $$
