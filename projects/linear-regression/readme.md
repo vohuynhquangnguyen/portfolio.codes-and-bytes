@@ -130,6 +130,18 @@ with $\beta_{1,0}$ is the hypothesized value, which is zero.
 
 * Rejection criteria: we will reject $H_0$ when $T_{\beta_1} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_1} < t_{\alpha / 2,n-2}$.
 
+* Confidence interval for $\beta_1$ and $\beta_0$: the confidence interval is an interval where the true value of a parameter most likely lies in if we repeat the estimation many times with different samples drawing from the same population. Hence, the $100(1-\alpha)\%$ confidence interval of respective $\beta_1$ and $\beta_0$ is given as:
+
+```math
+\tag{1.8}
+\text{CI}_{\beta_1} &= \hat{\beta_1} \pm |t_{\alpha/2, n-2}|\sqrt{\frac{s_\epsilon^2}{S_{xx}}}
+```
+
+```math
+\tag{1.9}
+\text{CI}_{\beta_0} &= \hat{\beta_0} \pm |t_{\alpha/2, n-2}|\sqrt{s_\epsilon^2\Big(\frac{1}{n}+\frac{\bar{x}^2}{S_{xx}}}\Big) \\
+```
+
 #### Normality of residuals
 To validate whether our residuals are normally distributed, we can either construct a normal quantile-quantile plot and/or conduct the Shapiro-Wilk test on the standardized residuals. If the standard residuals fall approximately along a straight line, which represents the theoretical value from the hypothesized distribution $\mathcal{N}(0,\sigma^2)$, in the normality plot, we conclude that there is no severe departure from normality.
 
