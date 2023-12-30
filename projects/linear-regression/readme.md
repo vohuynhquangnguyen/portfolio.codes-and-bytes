@@ -75,7 +75,10 @@ $$
 Having estimated the slope $\beta_1$ and the intercept $\beta_0$, we need to estimate the variance of the error terms $\sigma^2_{\epsilon}$, which is done as follows:
 
 $$
-s_{\pmb{\epsilon}}^2 = \frac{SS_E}{\text{DOF}} = \frac{SS_E}{n-2} = \frac{\sum_{i=1}^ny_i^2 - n\bar{y}^2}{n-2}
+\begin{aligned}
+s_{\pmb{\epsilon}}^2 &= \frac{SS_E}{\text{DOF}} 
+&= \frac{SS_E}{n-2} = \frac{\sum_{i=1}^ny_i^2 - n\bar{y}^2}{n-2}
+\end{aligned}
 $$
 
 with $\bar{y}$ is the mean all responses in the dataset, and $\text{DOF}$ is the degree of freedom (d.o.f.). Since we use 2 d.o.f. to estimate the slope and the intercept of the regression line, only $n-2$ d.o.f. left for the error variance estimation. We refer to $s_{\pmb{\epsilon}}$ as the estimated standard error of the regression model. We usually annotate the estimated standard error simply as $s$.
@@ -179,14 +182,16 @@ The **Cook's distance** of a data point is a measure of how influential that dat
 D_i = \frac{(y_i-\hat{y}_{(i)})^2}{2\times\text{MSE}} \Bigg[\frac{h_{ii}}{(1-h_{ii})^2}\Bigg]
 ```
 
-
 #### Utility of the model
 In the context of linear regression, the utility of a model is the significance of regression. In other words, it represents how well our model describes the relationship between the response and the predictor. To analyze the utility of a linear regression model, we analyze variance (ANOVA):
 * We first partition the total variability in the response variable $\mathbf{y}$ into two meaningful components:
+  
 $$
 SS_T = SS_R + SS_E 
 $$
+
 with $SS_T$ represents the total variability, a.k.a. the total sum of squares; $SS_R$ represents the regression variability, a.k.a. the regression sum of squares; $SS_E$ represents the error variability, a.k.a. error sum of squares. $SS_R$ and $SS_E$ are computed as follows:
+
 $$
 \begin{aligned}
 SS_R &= \sum_{i=1}^n(\hat{y_i} - \bar{y})^2 \\
@@ -194,17 +199,20 @@ SS_E &= \sum_{i=1}^n(y_i - \hat{y_i})^2
 \end{aligned}
 $$
 
-* We then compute the coefficient of determination $R^2$, interpreted as the proportion of variability in the response that is explained by our model: 
+* We then compute the coefficient of determination $R^2$, which is interpreted as the proportion of variability in the response that is explained by our model: 
+
 $$
 R^2 = \frac{SS_R}{SS_T} = 1 - \frac{SS_E}{SS_T}
 $$
 
 Interestingly, in SLR, the test for the significance of the regression is the same as the test for whether the slope $\beta_1$ is zero, albeit using a different test statistic. The test is as follows:
 * Hypotheses: $H_0: \beta_1 = 0 | \beta_0$ versus $H_0: \beta_1 \neq 0 | \beta_0$. We can interpret $H_0$ as we are assuming that our model is as good as the intercept-only model.
-* Test statistic: the test statistic follows the F-distribution with $1$ d.o.f in the numerator and $n-2$ d.o.f in the denonimator, and it is given as:
+* Test statistic: the test statistic follows the F-distribution with $1$ d.o.f in the numerator and $n-2$ d.o.f. in the denominator, and it is given as:
+
 $$
 F_0 = \frac{SS_R/1}{SS_E/(n - 2)}=\frac{R^2}{(1-R^2)/(n -2)}  
 $$
+
 * Rejection criteria: We will reject $H_0$ when $F_0 >  f_{1-\alpha / 2,1,n-2}$.
 
 ### Example
