@@ -39,13 +39,13 @@ $$
 
 with:
 * $\mathbf{y}= [y_1,y_2,...,y_n]^T$ is a column vector that represents the **dependent variable** (a.k.a. the **response** variable);
-- $\mathbf{x} =[x_1,x_2,...,x_n]^T$ is a column vector that represents the independent variable (a.k.a. **factor**, or **predictor**);
+- $\mathbf{x} =[x_1,x_2,...,x_n]^T$ is a column vector that represents the **independent variable** (a.k.a. **factor**, or **predictor**);
 - $\mathbf{\hat{y}} = \beta_o + \beta_1\mathbf{x}$ is a column vector that represents the **deterministic component**;
 - $\pmb{\epsilon}$ is the **error component**;
 - $\beta_0$ is the **intercept** of the regression line;
 - $\beta_1$ is the  **slope** of the regression line. We can interpret it as the amount of increase or decrease in the mean of $\mathbf{y}$ for every unit increase in $\mathbf{x}$.
 
-From (1.2), we define the estimated SLR model given the dataset as follows:
+From (1.2), we define the estimated SLR model, a.k.a. the fitted model, given the dataset as follows:
 
 $$
 \tag{1.3}
@@ -54,7 +54,7 @@ $$
 
 Noted that there is a difference between $\pmb{\hat{\beta}}$ and $\pmb{{\beta}}$: $\pmb{\hat{\beta}}$ are estimated parameters, while $\pmb{{\beta}}$ are true and unknown population parameter. We obtain $\pmb{\hat{\beta}}$ by analysing the dataset, which is a subset of the population.
 
-To estimate unknown parameters namely $\beta_0$ and $\beta_1$ of the regression models, we use the least-square method:
+To estimate unknown parameters, namely $\beta_0$ and $\beta_1$, of the regression model, we use the **least-square method**:
 * Formulation:
 
 $$
@@ -76,13 +76,13 @@ Having estimated the slope $\beta_1$ and the intercept $\beta_0$, we need to est
 
 $$
 \begin{aligned}
-s_{\pmb{\epsilon}}^2 &= \frac{SS_E}{\text{DOF}} \\
-&= \frac{SS_E}{n-2} = \Bigg[\sum_{i=1}^n y_i^2 - n\bar{y}^2\Bigg]\div\Bigg[n-2\Bigg]
+s_{\pmb{\epsilon}}^2 &= \frac{SS_E}{\text{DOF}} = \frac{SS_E}{n-2} \\
+&= \Bigg[\sum_{i=1}^n y_i^2 - n\bar{y}^2\Bigg]\div\Bigg[n-2\Bigg] \\
+&= \Bigg[\sum_{i=1}^n y_i^2 - n(\frac{1}{n}\sum_{i=1}^n y_i)^2\Bigg]\div\Bigg[n-2\Bigg] 
 \end{aligned}
 $$
 
-with $\bar{y}$ is the mean all responses in the dataset, and $\text{DOF}$ is the degree of freedom (d.o.f.). Since we use 2 d.o.f. to estimate the slope and the intercept of the regression line, only $n-2$ d.o.f. left for the error variance estimation. We refer to $s_{\pmb{\epsilon}}$ as the estimated standard error of the regression model. We usually annotate the estimated standard error simply as $s$.
-
+with $\bar{y}$ is the mean all responses in the dataset, and $\text{DOF}$ is the degree of freedom (d.o.f.). Since we use 2 d.o.f. to estimate the slope and the intercept of the regression line, only $n-2$ d.o.f. left for the error variance estimation. We refer to $s_{\pmb{\epsilon}}$ as the estimated standard error of the regression model. In statistical literature, we usually annotate the estimated standard error and the estimated variance of errors simply as $s$ and $s^2$, respectively.
 
 ### Assumptions
 When constructing the SLR model, we underline the following crucial assumptions:
@@ -91,13 +91,13 @@ When constructing the SLR model, we underline the following crucial assumptions:
 * The errors are **normally distributed** with a mean of zero and a quantified standard deviation. In other words, $\pmb{\epsilon} \sim \mathcal{N}(0,\sigma^2)$.
 * The errors have **equal variances** (homoscedastic). In other words, the variability in the response does not increase as the value of the predictor increases. 
 * The response is a random variable, while the predictor is a non-random variable.
-* There is **no presence of highly leveraged and/or highly influential observations**.
+* There is **no presence of highly leveraged and/or highly influential observations**. In other words, there is no presence of outliers.
 
 ### Hypothesis test
 In the context of SLR, we use hypothesis tests as a holistic approach to (1) verify the validity of each assumption we made above, and (2) statistically check the utility of our model.
 
 #### Linear association between predictor and response
-To quantify the strength of the linear relationship $\mathbf{x}$ and $\mathbf{y}$ given the dataset, we use a measure called **Pearson correlation coefficient**. In SLR, the **Pearson correlation coefficient** between the response and the predictor is given as:
+To quantify the strength of the linear relationship $\mathbf{x}$ and $\mathbf{y}$ given the dataset, we use a measure called **Pearson correlation coefficient**. In SLR, the **Pearson correlation coefficient** between the response and the predictor given the dataset is computed as:
 
 $$
 \tag{1.5}
@@ -111,7 +111,7 @@ $$
 
 We can test whether the true Pearson correlation coefficient of the probabilistic model, $\mathbf{y} = f(\mathbf{x}) + \pmb{\epsilon}$, is different from a hypothesized value, which we usually define to be zero, using the following steps:
 * Hypotheses: $H_0: \rho = 0$ versus $H_a: \rho \neq 0$ at the significant level $\alpha = 0.05$.
-* Test statistic: the test statistic follows the Studentized t-distribution with $n-2$ degree of freedom, and it is given as:
+* Test statistic: the test statistic follows the Studentized t-distribution with $n-2$ d.o.f., and it is given as:
 
 $$
 \tag{1.6}
@@ -120,7 +120,7 @@ $$
 
 * Rejection criteria: we will reject $H_0$ when $T_{r} >  t_{1-\alpha / 2,n-2}$ or $T_{r} < t_{\alpha / 2,n-2}$.
 
-Additionally, we can quantify whether there is a significant linear association between $\mathbf{x}$ and $\mathbf{y}$ using the t-test. The t-test is a hypothesis test meaning we are testing whether a parameter is different from a hypothesized value. The steps of the t-test are as follows:
+Additionally, we can quantify whether there is a significant linear association between $\mathbf{x}$ and $\mathbf{y}$ using the t-test on the slope parameter. The t-test is a hypothesis test meaning we are testing whether a parameter is different from a hypothesized value. The steps of the t-test are as follows:
 * Hypotheses: $H_0: \beta_1 = 0$ versus $H_a: \beta_1 \neq 0$ at the significant level $\alpha = 0.05$.  We can interpret $H_0$ as follows: if $\beta_1$ is zero, $\mathbf{x}$ and $\mathbf{y}$ are completely unrelated.
 * Test statistic: the test statistic follows the Studentized t-distribution with $n-2$ degree of freedom, and it is given as:
 
@@ -129,16 +129,16 @@ $$
 T_{\beta_1} = \frac{\hat{\beta_1} - \beta_{1,0}}{\text{SE}(\hat{\beta_1})} = \frac{\hat{\beta_1} - \beta_{1,0}}{\sqrt{s^2/SS_{xx}}}
 $$
 
-with $\beta_{1,0}$ is the hypothesized value, which is zero. Similarly, the test statistic for $\beta_0$ is given as:
+with $\beta_{1,0}$ is the hypothesized value for $\beta_{1}$, which is zero. Similarly, the test statistic for the intercept parameter, $\beta_0$, is given as:
 
 $$
 \tag{1.8}
 T_{\beta_0} = \frac{\hat{\beta_0} - \beta_{0,0}}{\text{SE}(\hat{\beta_0})} = \frac{\hat{\beta_0} - \beta_{0,0}}{\sqrt{s^2(1/n + \bar{x}/SS_{xx})}}
 $$
 
-with $\bar{x}$ is the average of the predictor values.
+with $\bar{x}$ is the average of the predictor values, and $\beta_{0,0}$ is the hypothesized value for $\beta_0$.
 
-* Rejection criteria: we will reject $H_0$ when $T_{\beta_1} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_1} < t_{\alpha / 2,n-2}$.
+* Rejection criteria: we will reject $H_0$ for the t-test on $\beta_1$ when $T_{\beta_1} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_1} < t_{\alpha / 2,n-2}$. Similarly, we will reject $H_0$ for the t-test on $\beta_0$ when $T_{\beta_0} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_0} < t_{\alpha / 2,n-2}$
 
 * Confidence interval for $\beta_1$ and $\beta_0$: the confidence interval is an interval where the true value of a parameter most likely lies if we repeat the estimation many times with different samples drawn from the same population. Hence, the $100(1-\alpha)\%$ confidence interval of respective $\beta_1$ and $\beta_0$ is given as:
 
@@ -151,6 +151,8 @@ with $\bar{x}$ is the average of the predictor values.
 \tag{1.9}
 \text{CI}_{\beta_0} = \hat{\beta_0} \pm |t_{\alpha/2, n-2}|\sqrt{s_\epsilon^2\Big(\frac{1}{n}+\frac{\bar{x}^2}{S_{xx}}}\Big) \\
 ```
+
+To sum up, in the context of SLR, the test on the correlation coefficient and the t-test on the slope parameter relate to the significance of regression. Failing to reject $H0: \beta_1 = 0$ and $H0: \rho = 0$ implie that there is no linear relationship between the predictor and the response. 
 
 #### Normality of residuals
 To validate whether our residuals are normally distributed, we can either construct a normal quantile-quantile plot and/or conduct the Shapiro-Wilk test on the standardized residuals. If the standard residuals fall approximately along a straight line, which represents the theoretical value from the hypothesized distribution $\mathcal{N}(0,\sigma^2)$, in the normality plot, we conclude that there is no severe departure from normality.
