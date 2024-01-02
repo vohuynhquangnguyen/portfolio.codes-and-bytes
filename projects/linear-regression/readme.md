@@ -211,7 +211,7 @@ An observation with the Cook's distance larger than three times the mean Cook's 
 To sum up, in practice we usually construct the Cook's distance-versus-leverage plot to determine which data point is potentially an outlier.
 
 #### Utility of the model
-In the context of linear regression, the utility of a model is the significance of regression. In other words, it represents how well our model describes the relationship between the response and the predictor. To analyze the utility of a linear regression model, we analyze variance (ANOVA):
+In the context of linear regression, the utility of a model is the significance of regression. In other words, it represents how well our model describes the relationship between the response and the predictor. As mentioned above, to test the significance of regression in the context of SLR, we conduct the t-test on the slope parameter and/or the test on the correlaition coefficient. In addition to these two tests, a general approach is to conduct the analysis of variance (ANOVA). The ANOVA consists of the following steps:
 * We first partition the total variability in the response variable $\mathbf{y}$ into two meaningful components:
   
 $$
@@ -233,7 +233,7 @@ $$
 R^2 = \frac{SS_R}{SS_T} = 1 - \frac{SS_E}{SS_T}
 $$
 
-Interestingly, in SLR, the test for the significance of the regression is the same as the test for whether the slope $\beta_1$ is zero, albeit using a different test statistic. The test is as follows:
+Once we have acquired the coefficient of determination, we will conduct the test for model utility as follows:
 * Hypotheses: $H_0: \beta_1 = 0 | \beta_0$ versus $H_0: \beta_1 \neq 0 | \beta_0$. We can interpret $H_0$ as we are assuming that our model is as good as the intercept-only model.
 * Test statistic: the test statistic follows the F-distribution with $1$ d.o.f in the numerator and $n-2$ d.o.f. in the denominator, and it is given as:
 
