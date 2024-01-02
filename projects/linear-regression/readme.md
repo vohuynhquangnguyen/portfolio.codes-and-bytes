@@ -235,7 +235,7 @@ $$
 
 Once we have acquired the coefficient of determination, we will conduct the test for model utility as follows:
 * Hypotheses: $H_0: \beta_1 = 0 | \beta_0$ versus $H_0: \beta_1 \neq 0 | \beta_0$. We can interpret $H_0$ as we are assuming that our model is as good as the intercept-only model.
-* Test statistic: the test statistic follows the F-distribution with $1$ d.o.f in the numerator and $n-2$ d.o.f. in the denominator, and it is given as:
+* Test statistic: the test statistic follows the F-distribution with $1$ d.o.f. in the numerator and $n-2$ d.o.f. in the denominator, and it is given as:
 
 $$
 F_0 = \frac{SS_R/1}{SS_E/(n - 2)}=\frac{R^2}{(1-R^2)/(n -2)}  
@@ -244,8 +244,10 @@ $$
 * Rejection criteria: We will reject $H_0$ when $F_0 >  f_{1-\alpha / 2,1,n-2}$.
 
 ### Example
-Here is a demo of how to construct a SLR model on a toy dataset:
+Here is a demo of how to construct a SLR model on a toy dataset using Python:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/vohuynhquangnguyen/portfolio.codes-and-bytes/blob/main/projects/linear-regression/notebooks/simple_linear_regression.ipynb)
+
+Here is a demo of how to construct a SLR model on a toy dataset using R:
 
 ## Multiple linear regression (MLR) <a name = 'MLR'></a>
