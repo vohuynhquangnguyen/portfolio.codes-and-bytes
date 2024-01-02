@@ -155,10 +155,23 @@ with $\bar{x}$ is the average of the predictor values, and $\beta_{0,0}$ is the 
 To sum up, in the context of SLR, the test on the correlation coefficient and the t-test on the slope parameter relate to the significance of regression. Failing to reject $H0: \beta_1 = 0$ and $H0: \rho = 0$ implie that there is no linear relationship between the predictor and the response. 
 
 #### Normality of residuals
-To validate whether our residuals are normally distributed, we can either construct a normal quantile-quantile plot and/or conduct the Shapiro-Wilk test on the standardized residuals. If the standard residuals fall approximately along a straight line, which represents the theoretical value from the hypothesized distribution $\mathcal{N}(0,\sigma^2)$, in the normality plot, we conclude that there is no severe departure from normality.
+To validate whether our residuals are normally distributed, we can either construct a normal quantile-quantile plot and/or conduct the Shapiro-Wilk test on the standardized residuals. The standardized residuals are given as:
+
+$$
+d_i = \frac{y_i - \hat{y}_i}{\sqrt{MSE}} = \frac{y_i - \hat{y}_i}{\sqrt{SS_E / (n-2)}} 
+$$
+
+with $MSE$ is the mean square error. If the standardized residuals fall approximately along a straight line, which represents the theoretical value from the hypothesized distribution $\mathcal{N}(0,\sigma^2)$, in the normality plot, we conclude that there is no severe departure from normality. We can also construct a histogram of residuals to further assess whether the errors are normally distributed.
+
+To sum up, in practice we usually combine both the visual approach (constructing the normality plot) and the hypothesis test approach to validate this assumption.
 
 #### Homoscedasticity
-To validate whether our residuals are homoscedastic, we can either construct a residual-versus-fitted plot and/or conduct a hypothesis test on the error variances. One popular and intuitive hypothesis test is the Goldfeld-Quandt test. The procedure of the Goldfeld-Quandt test, explained in a simplified manner is as follows:
+To validate whether our residuals are homoscedastic, we have two primary approaches: a visual approach or a hypothesis test approach. In the visual approach, we will construct either a residual-versus-fitted plot or a residual-versus-predictor plot. We outline the following characteristics of a well-behaved residual-versus-fitted plot, which also applicable for the residual-versus-predictor plot:  
+* The residuals "bounce randomly" around the $\epsilon_i = 0$ line. This suggests that the assumption that the relationship is linear is reasonable.
+* The residuals roughly form a "horizontal band" around the $\epsilon_i = 0$ line. This suggests that the variances of the error terms are equal.
+* No one residual "stands out" from the basic random pattern of residuals. This suggests that there are no outliers.
+
+Moving to the second approach, we will conduct a hypothesis test on the error variances. One popular and intuitive hypothesis test is the Goldfeld-Quandt test. The procedure of the Goldfeld-Quandt test, explained in a simplified manner is as follows:
 * We divide our dataset into two equal subsets $N_1$ and $N_2$.
 * In each subset, we construct a SLR model. Hence, we have two models namely $\mathbf{y}_1 = \hat{\alpha}_0 + \hat{\alpha}_1\mathbf{x}_1$ and $\mathbf{y}_2 = \hat{\gamma}_0 + \hat{\gamma}_1\mathbf{x}_2$.
 * For each model, we quantify the estimated error variance namely $s_1^2$ and $s_2^2$.
@@ -175,21 +188,27 @@ $$
 
 * Rejection criteria: we will reject $H_0$ when $F_0 > f_{1-\alpha/2,n_1-1,n_2-1}$ or $F_0 < f_{\alpha/2,n_1-1,n_2-1}$.
 
+To sum up, similar to the normality of residuals assumption, we will  combine both the visual approach (constructing the normality plot) and the hypothesis test approach to validate this assumption. 
+
 #### Leveraged and influential data points
-Ideally, the dataset that we used to construct our SLR model should not have any outliers. Nevertheless, if there are outliers presented in our dataset, we need to quantify their respective leverage and Cook's distance.
+Ideally, the dataset that we used to construct our SLR model should not have any outliers, i.e., not having an extreme x nd y values. Nevertheless, if there are outliers presented in our dataset, we need to quantify their respective leverage and Cook's distance.
 * **Leverage of a data point** is a measure of its ability to pull the regression line towards itself. The leverage of a data point depends entirely on its $x$-value: if the $x$-value of a data point  is far removed from the center of all $x$-values, then that data point will have a high leverage. In the context of SLR, a leverage of the $i$-th observation is given as:
 
 $$
 \tag{1.10}
-h_{ii} = \frac{1}{n} + \frac{x_i -\bar{x}}{SS_{xx}}
+h_{ii} = \frac{1}{n} + \frac{(x_i -\bar{x})^2}{SS_{xx}}
 $$
 
-The **Cook's distance** of a data point is a measure of how influential that data point is by quantifying its effect on the linear model if omitted from the analysis. As a result, Cook's distance is a function of both the leverage and the magnitude of the residual. The Cook's distance of the $i$-th observation is given as:
+* The **Cook's distance** of a data point is a measure of how influential that data point is by quantifying its effect on the linear model if omitted from the analysis. As a result, Cook's distance is a function of both the leverage and the magnitude of the residual. The Cook's distance of the $i$-th observation is given as:
 
 ```math
 \tag{1.11}
 D_i = \frac{(y_i-\hat{y}_{(i)})^2}{2\times\text{MSE}} \Bigg[\frac{h_{ii}}{(1-h_{ii})^2}\Bigg]
 ```
+
+An observation with the Cook's distance larger than three times the mean Cook's distance might be an outlier.  As a rule of thumb, if $D_i$  is greater than 0.5, then the $i$-th data point is worthy of further investigation as it may be influential. If $D_i$ is greater than 1, then the $i$-th data point is quite likely to be influential. If $D_i$ stands out from the other Cook's distance values in addition to being greater than 1, it is almost certainly influential.
+
+To sum up, in practice we usually construct the Cook's distance-versus-leverage plot to determine which data point is potentially an outlier.
 
 #### Utility of the model
 In the context of linear regression, the utility of a model is the significance of regression. In other words, it represents how well our model describes the relationship between the response and the predictor. To analyze the utility of a linear regression model, we analyze variance (ANOVA):
