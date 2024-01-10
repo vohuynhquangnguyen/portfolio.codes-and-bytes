@@ -307,4 +307,6 @@ Here is a demo of how to construct a SLR model on a toy dataset using Python:
 
 Here is a demo of how to construct a SLR model on a toy dataset using R:
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]()
+
 ## Multiple linear regression (MLR) <a name = 'MLR'></a>
