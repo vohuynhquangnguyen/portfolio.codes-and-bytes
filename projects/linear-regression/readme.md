@@ -223,13 +223,13 @@ $$
 * Rejection criteria: we will reject $H_0$ when $F_0 > f_{1-\alpha/2,n_1-1,n_2-1}$ or $F_0 < f_{\alpha/2,n_1-1,n_2-1}$, with $f_{\alpha/2,n_1-1,n_2-1}$ is the lower critical value and $f_{1 - \alpha/2,n_1-1,n_2-1}$ is the upper critical value. Alternatively, we can reject $H_0$ if the corresponding p-value of the test statistic is less than the significant level. The p-value for the test statistic $F_0$ is given as:
 
 $$
-\tag{1.15}
+\tag{1.16}
 p(F_0) = 1 - \Phi(F_0)
 $$
 
-$\Phi(F_0)$ is the cumulative distribution function of the test statistic $F_0$.
+with $\Phi(F_0)$ is the cumulative distribution function of the test statistic $F_0$.
 
-To sum up, similar to the normality of residuals assumption, we will  combine both the visual approach (constructing the normality plot) and the hypothesis test approach to validate this assumption. 
+To sum up, similar to the normality of residuals assumption, in practice we will  combine both the visual approach (constructing the residuals-versus-fitted plot) and the hypothesis test approach to validate this assumption. 
 
 #### Leveraged and influential data points
 Ideally, the dataset that we used to construct our SLR model should not have any outliers, i.e., not having an extreme x nd y values. Nevertheless, if there are outliers presented in our dataset, we need to quantify their respective leverage and Cook's distance.
