@@ -17,7 +17,7 @@ The process of building a linear regression model involves the following steps:
 5. Statistically check the usefulness of the model.
 6. When satisfied that the model is useful, use it for prediction, estimation, and so on.
 
-In the following sections, we will delve into three core topics of linear regression: simple linear regression (SLR), multiple linear regression (MLR), and logistic regression (LR).
+In the following sections, we will delve into three core topics of linear regression: simple linear regression (SLR), multiple linear regression (MLR), and logistic regression (LR). Please note that the contents below are a summarized account of important points in linear regression. I strongly recommend you to consult the references for a rigorous treatment of the topics.
 
 ## Simple Linear Regression (SLR) <a name = 'SLR'></a>
 ### Overview
@@ -75,6 +75,7 @@ $$
 Having estimated the slope $\beta_1$ and the intercept $\beta_0$, we need to estimate the variance of the error terms $\sigma^2_{\epsilon}$, which is done as follows:
 
 $$
+\tag{1.6}
 \begin{aligned}
 s_{\pmb{\epsilon}}^2 &= \frac{SS_E}{\text{DOF}} = \frac{SS_E}{n-2} \\
 &= \Bigg[\sum_{i=1}^n y_i^2 - n\bar{y}^2\Bigg]\div\Bigg[n-2\Bigg] \\
@@ -100,7 +101,7 @@ In the context of SLR, we use hypothesis tests as a holistic approach to (1) ver
 To quantify the strength of the linear relationship $\mathbf{x}$ and $\mathbf{y}$ given the dataset, we use a measure called **Pearson correlation coefficient**. In SLR, the **Pearson correlation coefficient** between the response and the predictor given the dataset is computed as:
 
 $$
-\tag{1.5}
+\tag{1.6}
 \begin{aligned}
 r &= \frac{SS_{xy}}{\sqrt{SS_{xx}SS_{yy}}} \\
 &= \Bigg[\sum_{i=1}^n(x_i - \bar{x})(y_i-\bar{y})\Bigg] \div \Bigg[\sqrt{\big(\sum_{i=1}^n(x_i - \bar{x})^2\big) \big(\sum_{i=1}^n(y_i - \bar{y})^2\big)}\Bigg]
@@ -109,7 +110,7 @@ $$
 
 * Properties of the Pearson correlation coefficient: the value of the measure $r$ is always between $-1$ and $+1$, regardless of the units of measurement used for the variables $\mathbf{x}$ and $\mathbf{y}$. In other words, it is scaleless.
 
-We can test whether the true Pearson correlation coefficient of the probabilistic model, $\mathbf{y} = f(\mathbf{x}) + \pmb{\epsilon}$, is different from a hypothesized value, which we usually define to be zero, using the following steps:
+We can test whether the true population Pearson correlation coefficient, $\rho$, of the probabilistic model, $\mathbf{y} = f(\mathbf{x}) + \pmb{\epsilon}$, is different from a hypothesized value, which we usually define to be zero, using the following hypothesis test:
 * Hypotheses: $H_0: \rho = 0$ versus $H_a: \rho \neq 0$ at the significant level $\alpha = 0.05$.
 * Test statistic: the test statistic follows the Studentized t-distribution with $n-2$ d.o.f., and it is given as:
 
@@ -118,29 +119,56 @@ $$
 T_r = r\sqrt{\frac{n-2}{1-r^2}}
 $$
 
-* Rejection criteria: we will reject $H_0$ when $T_{r} >  t_{1-\alpha / 2,n-2}$ or $T_{r} < t_{\alpha / 2,n-2}$.
+* Rejection criteria: we will reject $H_0$ when $T_{r} >  t_{1-\alpha / 2,n-2}$ or $T_{r} < t_{\alpha / 2,n-2}$, with $t_{\alpha / 2,n-2}$ is the lower critical value and $t_{1-\alpha / 2,n-2}$ is the upper critical value. Alternatively, we will reject $H_0$ if the corresponding p-value of the test statistic is lower than the value of the significant level. The p-value of $T_r$ is given as:
 
-Additionally, we can quantify whether there is a significant linear association between $\mathbf{x}$ and $\mathbf{y}$ using the t-test on the slope parameter. The t-test is a hypothesis test meaning we are testing whether a parameter is different from a hypothesized value. The steps of the t-test are as follows:
+$$
+\tag{1.7}
+p(T_r) = 2\Big(1 - |\Phi(T_r)|\Big)
+$$
+
+with $\Phi(T_r)$ is the cumulative distribution function of the test statistic $T_r$.
+
+Additionally, we can quantify whether there is a significant linear association between $\mathbf{x}$ and $\mathbf{y}$ using the t-test on the slope parameter. The t-test is a hypothesis test meaning we are testing whether a parameter is different from a hypothesized value given that the test statistic follows the Studentized t-distribution. The steps of the t-test on the slope parameter are as follows:
 * Hypotheses: $H_0: \beta_1 = 0$ versus $H_a: \beta_1 \neq 0$ at the significant level $\alpha = 0.05$.  We can interpret $H_0$ as follows: if $\beta_1$ is zero, $\mathbf{x}$ and $\mathbf{y}$ are completely unrelated.
 * Test statistic: the test statistic follows the Studentized t-distribution with $n-2$ degree of freedom, and it is given as:
 
 $$
-\tag{1.7}
+\tag{1.8}
 T_{\beta_1} = \frac{\hat{\beta_1} - \beta_{1,0}}{\text{SE}(\hat{\beta_1})} = \frac{\hat{\beta_1} - \beta_{1,0}}{\sqrt{s^2/SS_{xx}}}
 $$
 
-with $\beta_{1,0}$ is the hypothesized value for $\beta_{1}$, which is zero. Similarly, the test statistic for the intercept parameter, $\beta_0$, is given as:
+with $\beta_{1,0}$ is the hypothesized value for $\beta_{1}$, which is zero. 
+
+* Rejection criteria: we will reject $H_0$ for the t-test on $\beta_1$ when $T_{\beta_1} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_1} < t_{\alpha / 2,n-2}$. Alternatively, we will reject $H_0$ if the corresponding p-value of the test statistic is lower than the value of the significant level. The p-value of $T_{\beta_1}$ is given as:
 
 $$
-\tag{1.8}
+\tag{1.9}
+p(T_{\beta_1}) = 2\Big(1 - |\Phi(T_{\beta_1})|\Big)
+$$
+
+with $\Phi(T_{\beta_1})$ is the cumulative distribution function of the test statistic $T_{\beta_1}$.
+
+*  Confidence interval for $\beta_1$: the confidence interval is an interval where the true value of a parameter most likely lies if we repeat the estimation many times with different samples drawn from the same population. Hence, the $100(1-\alpha)\%$ confidence interval of the slope paramter, $\beta_1$, is given as:
+
+$$
+\tag{1.10}
+\text{CI}_{\beta_1} = \hat{\beta_1} \pm |t_{\alpha/2, n-2}|\sqrt{\frac{s_\epsilon^2}{S_{xx}}}
+$$
+
+Moreover, we can conduct a hypothesis test on the the intercept as follows:
+* Hypotheses: $H_0: \beta_0 = 0$ versus $H_a: \beta_0 \neq 0$ at the significant level $\alpha = 0.05$.  We can interpret $H_0$ as follows: if $\beta_0$ is zero, the true regression line will pass through the origin.
+* Test statistic: the test statistic, likewise, follows the Studentized t-distribution with $n-2$ degree of freedom, and it is given as:
+
+$$
+\tag{1.11}
 T_{\beta_0} = \frac{\hat{\beta_0} - \beta_{0,0}}{\text{SE}(\hat{\beta_0})} = \frac{\hat{\beta_0} - \beta_{0,0}}{\sqrt{s^2(1/n + \bar{x}/SS_{xx})}}
 $$
 
 with $\bar{x}$ is the average of the predictor values, and $\beta_{0,0}$ is the hypothesized value for $\beta_0$.
 
-* Rejection criteria: we will reject $H_0$ for the t-test on $\beta_1$ when $T_{\beta_1} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_1} < t_{\alpha / 2,n-2}$. Similarly, we will reject $H_0$ for the t-test on $\beta_0$ when $T_{\beta_0} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_0} < t_{\alpha / 2,n-2}$
+ Similarly, we will reject $H_0$ for the t-test on $\beta_0$ when $T_{\beta_0} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_0} < t_{\alpha / 2,n-2}$
 
-* Confidence interval for $\beta_1$ and $\beta_0$: the confidence interval is an interval where the true value of a parameter most likely lies if we repeat the estimation many times with different samples drawn from the same population. Hence, the $100(1-\alpha)\%$ confidence interval of respective $\beta_1$ and $\beta_0$ is given as:
+* Confidence interval for $\beta_0$: 
 
 ```math
 \tag{1.8}
