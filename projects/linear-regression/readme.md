@@ -166,12 +166,20 @@ $$
 
 with $\bar{x}$ is the average of the predictor values, and $\beta_{0,0}$ is the hypothesized value for $\beta_0$, which is equal to zero.
 
-* Rejection criteria: Similarly, we will reject $H_0$ for the t-test on $\beta_0$ when $T_{\beta_0} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_0} < t_{\alpha / 2,n-2}$. Alternatively, we will reject $H_0$ if the corresponding p-value is lower than the significant level.
+* Rejection criteria: Similarly, we will reject $H_0$ for the t-test on $\beta_0$ when $T_{\beta_0} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_0} < t_{\alpha / 2,n-2}$. Alternatively, we will reject $H_0$ if the corresponding p-value is lower than the significant level. The p-value for $T_{\beta_0}$ is given as:
+
+$$
+\tag{1.12}
+p(T_{\beta_0}) = 2\Big(1 - |\Phi(T_{\beta_0})|\Big)
+$$
+
+with $\Phi(T_{\beta_0})$ is the cumulative distribution function of the test statistic $T_{\beta_0}$.
+
 
 * Confidence interval for $\beta_0$: the $100(1-\alpha)\%$ confidence interval of the intercept paramter, $\beta_0$, is given as:
 
 ```math
-\tag{1.12}
+\tag{1.13}
 \text{CI}_{\beta_0} = \hat{\beta_0} \pm |t_{\alpha/2, n-2}|
 \sqrt{s^2\Big(\frac{1}{n}+\frac{\bar{x}^2}{S_{xx}}\Big)}
 ```
@@ -180,13 +188,14 @@ with $\bar{x}$ is the average of the predictor values, and $\beta_{0,0}$ is the 
 To sum up, in the context of SLR, the test on the correlation coefficient and the t-test on the slope parameter relate to the significance of regression. Failing to reject $H_0: \beta_1 = 0$ and $H_0: \rho = 0$ implies that there is no linear relationship between the predictor and the response. 
 
 #### Normality of residuals
-To validate whether our residuals are normally distributed, we can either construct a normal quantile-quantile plot and/or conduct the Shapiro-Wilk test on the standardized residuals. The standardized residuals are given as:
+To validate whether our residuals are normally distributed, we can either construct a normal quantile-quantile plot and/or conduct a hypothesis test for normality such as the Shapiro-Wilk test (if the dataset we are using has less than 50 observations) or the Kolmogorov-Smirnovon test (if there are more than 50 observations in the dataset) on the standardized residuals. The standardized residuals are given as:
 
 $$
+\tag{1.14}
 d_i = \frac{y_i - \hat{y}_i}{\sqrt{MSE}} = \frac{y_i - \hat{y}_i}{\sqrt{SS_E / (n-2)}} 
 $$
 
-with $MSE$ is the mean square error. If the standardized residuals fall approximately along a straight line, which represents the theoretical value from the hypothesized distribution $\mathcal{N}(0,\sigma^2)$, in the normality plot, we conclude that there is no severe departure from normality. We can also construct a histogram of residuals to further assess whether the errors are normally distributed.
+with $MSE$ is the mean square error. If the standardized residuals fall approximately along a straight line, which represents the theoretical value from the hypothesized distribution $\mathcal{N}(0,\sigma^2)$, in the normality plot, we conclude that there is no severe departure from normality. We can also construct a histogram of standardized residuals to further assess whether the errors are normally distributed.
 
 To sum up, in practice we usually combine both the visual approach (constructing the normality plot) and the hypothesis test approach to validate this assumption.
 
@@ -199,19 +208,26 @@ To validate whether our residuals are homoscedastic, we have two primary approac
 Moving to the second approach, we will conduct a hypothesis test on the error variances. One popular and intuitive hypothesis test is the Goldfeld-Quandt test. The procedure of the Goldfeld-Quandt test, explained in a simplified manner is as follows:
 * We divide our dataset into two equal subsets $N_1$ and $N_2$.
 * In each subset, we construct a SLR model. Hence, we have two models namely $\mathbf{y}_1 = \hat{\alpha}_0 + \hat{\alpha}_1\mathbf{x}_1$ and $\mathbf{y}_2 = \hat{\gamma}_0 + \hat{\gamma}_1\mathbf{x}_2$.
-* For each model, we quantify the estimated error variance namely $s_1^2$ and $s_2^2$.
-* Finally, we conduct the test of equal variances for these estimators. 
+* We then quantify the respective estimated error variances namely $s_1^2$ and $s_2^2$ for the models.
+* Finally, we conduct the test of equal variances for these estimators of error variance. 
 
 The test of equal variances in the context of the Goldfeld-Quandt test consists of the following steps:
-* Hypotheses: $H_0: s_1^2 = s_2^2$ versus $H_a: s_1^2 \neq s_2^2$.
+* Hypotheses: $H_0: s_1^2 = s_2^2$ versus $H_a: s_1^2 \neq s_2^2$ at the significant level $\alpha = 0.05$.
 * Test statistic: the test statistic follows the F-distribution with $n_1 - 1$ numerator d.o.f. and $n_2 - 1$ denominator d.o.f. (in the case of the Goldfeld-Quandt test, $n_1 = n_2 = n/2$), and is given as:
 
 $$
-\tag{1.9}
+\tag{1.15}
 F_0 = \frac{s_1^2}{s^2_2} = \frac{MSE_1}{MSE_2}
 $$
 
-* Rejection criteria: we will reject $H_0$ when $F_0 > f_{1-\alpha/2,n_1-1,n_2-1}$ or $F_0 < f_{\alpha/2,n_1-1,n_2-1}$.
+* Rejection criteria: we will reject $H_0$ when $F_0 > f_{1-\alpha/2,n_1-1,n_2-1}$ or $F_0 < f_{\alpha/2,n_1-1,n_2-1}$, with $f_{\alpha/2,n_1-1,n_2-1}$ is the lower critical value and $f_{1 - \alpha/2,n_1-1,n_2-1}$ is the upper critical value. Alternatively, we can reject $H_0$ if the corresponding p-value of the test statistic is less than the significant level. The p-value for the test statistic $F_0$ is given as:
+
+$$
+\tag{1.15}
+p(F_0) = 1 - \Phi(F_0)
+$$
+
+$\Phi(F_0)$ is the cumulative distribution function of the test statistic $F_0$.
 
 To sum up, similar to the normality of residuals assumption, we will  combine both the visual approach (constructing the normality plot) and the hypothesis test approach to validate this assumption. 
 
