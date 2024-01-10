@@ -170,14 +170,14 @@ with $\bar{x}$ is the average of the predictor values, and $\beta_{0,0}$ is the 
 
 * Confidence interval for $\beta_0$: the $100(1-\alpha)\%$ confidence interval of the intercept paramter, $\beta_0$, is given as:
 
-$$
+```math
 \tag{1.12}
 \text{CI}_{\beta_0} = \hat{\beta_0} \pm |t_{\alpha/2, n-2}|
-\sqrt{s^2\Big(\frac{1}{n}+\frac{\bar{x}^2}{S_{xx}}\Big)} \\
-$$
+\sqrt{s^2\Big(\frac{1}{n}+\frac{\bar{x}^2}{S_{xx}}\Big)}
+```
 
 
-To sum up, in the context of SLR, the test on the correlation coefficient and the t-test on the slope parameter relate to the significance of regression. Failing to reject $H0: \beta_1 = 0$ and $H0: \rho = 0$ implie that there is no linear relationship between the predictor and the response. 
+To sum up, in the context of SLR, the test on the correlation coefficient and the t-test on the slope parameter relate to the significance of regression. Failing to reject $H_0: \beta_1 = 0$ and $H_0: \rho = 0$ implies that there is no linear relationship between the predictor and the response. 
 
 #### Normality of residuals
 To validate whether our residuals are normally distributed, we can either construct a normal quantile-quantile plot and/or conduct the Shapiro-Wilk test on the standardized residuals. The standardized residuals are given as:
