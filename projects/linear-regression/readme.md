@@ -148,7 +148,7 @@ $$
 
 with $\Phi(T_{\beta_1})$ is the cumulative distribution function of the test statistic $T_{\beta_1}$.
 
-*  Confidence interval for $\beta_1$: the confidence interval is an interval where the true value of a parameter most likely lies if we repeat the estimation many times with different samples drawn from the same population. Hence, the $100(1-\alpha)\%$ confidence interval of the slope paramter, $\beta_1$, is given as:
+* Confidence interval for $\beta_1$: the confidence interval is an interval where the true value of a parameter most likely lies if we repeat the estimation many times with different samples drawn from the same population. Hence, the $100(1-\alpha)\%$ confidence interval of the slope paramter, $\beta_1$, is given as:
 
 $$
 \tag{1.10}
@@ -164,21 +164,16 @@ $$
 T_{\beta_0} = \frac{\hat{\beta_0} - \beta_{0,0}}{\text{SE}(\hat{\beta_0})} = \frac{\hat{\beta_0} - \beta_{0,0}}{\sqrt{s^2(1/n + \bar{x}/SS_{xx})}}
 $$
 
-with $\bar{x}$ is the average of the predictor values, and $\beta_{0,0}$ is the hypothesized value for $\beta_0$.
+with $\bar{x}$ is the average of the predictor values, and $\beta_{0,0}$ is the hypothesized value for $\beta_0$, which is equal to zero.
 
- Similarly, we will reject $H_0$ for the t-test on $\beta_0$ when $T_{\beta_0} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_0} < t_{\alpha / 2,n-2}$
+* Rejection criteria: Similarly, we will reject $H_0$ for the t-test on $\beta_0$ when $T_{\beta_0} >  t_{1-\alpha / 2,n-2}$ or $T_{\beta_0} < t_{\alpha / 2,n-2}$. Alternatively, we will reject $H_0$ if the corresponding p-value is lower than the significant level.
 
-* Confidence interval for $\beta_0$: 
+* Confidence interval for $\beta_0$: the $100(1-\alpha)\%$ confidence interval of the intercept paramter, $\beta_0$, is given as:
 
-```math
-\tag{1.8}
-\text{CI}_{\beta_1} = \hat{\beta_1} \pm |t_{\alpha/2, n-2}|\sqrt{\frac{s_\epsilon^2}{S_{xx}}}
-```
-
-```math
-\tag{1.9}
+$$
+\tag{1.11}
 \text{CI}_{\beta_0} = \hat{\beta_0} \pm |t_{\alpha/2, n-2}|\sqrt{s_\epsilon^2\Big(\frac{1}{n}+\frac{\bar{x}^2}{S_{xx}}}\Big) \\
-```
+$$
 
 To sum up, in the context of SLR, the test on the correlation coefficient and the t-test on the slope parameter relate to the significance of regression. Failing to reject $H0: \beta_1 = 0$ and $H0: \rho = 0$ implie that there is no linear relationship between the predictor and the response. 
 
