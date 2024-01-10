@@ -224,7 +224,11 @@ $$
 
 $$
 \tag{1.16}
-p(F_0) = 1 - \Phi(F_0)
+p(F_0) = 
+\begin{cases}
+1 - \Phi(F_0), \quad &\Phi(F_0) > 0.5 \\
+\Phi(F_0), \quad &\Phi(F_0) < 0.5 \\
+\end{cases}
 $$
 
 with $\Phi(F_0)$ is the cumulative distribution function of the test statistic $F_0$.
@@ -232,57 +236,69 @@ with $\Phi(F_0)$ is the cumulative distribution function of the test statistic $
 To sum up, similar to the normality of residuals assumption, in practice we will  combine both the visual approach (constructing the residuals-versus-fitted plot) and the hypothesis test approach to validate this assumption. 
 
 #### Leveraged and influential data points
-Ideally, the dataset that we used to construct our SLR model should not have any outliers, i.e., not having an extreme x nd y values. Nevertheless, if there are outliers presented in our dataset, we need to quantify their respective leverage and Cook's distance.
+Ideally, the dataset that we used to construct our SLR model should not have any outliers, i.e., not having an extreme $x$ nd $y$ values. Nevertheless, if there are outliers presented in our dataset, we need to quantify their respective leverage and Cook's distance to determine whether these outliers are worth investigating.
+
 * **Leverage of a data point** is a measure of its ability to pull the regression line towards itself. The leverage of a data point depends entirely on its $x$-value: if the $x$-value of a data point  is far removed from the center of all $x$-values, then that data point will have a high leverage. In the context of SLR, a leverage of the $i$-th observation is given as:
 
 $$
-\tag{1.10}
+\tag{1.17}
 h_{ii} = \frac{1}{n} + \frac{(x_i -\bar{x})^2}{SS_{xx}}
 $$
 
 * The **Cook's distance** of a data point is a measure of how influential that data point is by quantifying its effect on the linear model if omitted from the analysis. As a result, Cook's distance is a function of both the leverage and the magnitude of the residual. The Cook's distance of the $i$-th observation is given as:
 
 ```math
-\tag{1.11}
+\tag{1.18}
 D_i = \frac{(y_i-\hat{y}_{(i)})^2}{2\times\text{MSE}} \Bigg[\frac{h_{ii}}{(1-h_{ii})^2}\Bigg]
 ```
 
 An observation with the Cook's distance larger than three times the mean Cook's distance might be an outlier.  As a rule of thumb, if $D_i$  is greater than 0.5, then the $i$-th data point is worthy of further investigation as it may be influential. If $D_i$ is greater than 1, then the $i$-th data point is quite likely to be influential. If $D_i$ stands out from the other Cook's distance values in addition to being greater than 1, it is almost certainly influential.
 
-To sum up, in practice we usually construct the Cook's distance-versus-leverage plot to determine which data point is potentially an outlier.
+To sum up, in practice we usually construct two scatter plots namely the standardized-residuals-versus-fitted plot and the Cook's-distance-versus-leverage plot to identify which data point is potentially an outlier with high influential. 
 
 #### Utility of the model
 In the context of linear regression, the utility of a model is the significance of regression. In other words, it represents how well our model describes the relationship between the response and the predictor. As mentioned above, to test the significance of regression in the context of SLR, we conduct the t-test on the slope parameter and/or the test on the correlaition coefficient. In addition to these two tests, a general approach is to conduct the analysis of variance (ANOVA). The ANOVA consists of the following steps:
 * We first partition the total variability in the response variable $\mathbf{y}$ into two meaningful components:
   
 $$
+\tag{1.19}
 SS_T = SS_R + SS_E 
 $$
 
 with $SS_T$ represents the total variability, a.k.a. the total sum of squares; $SS_R$ represents the regression variability, a.k.a. the regression sum of squares; $SS_E$ represents the error variability, a.k.a. error sum of squares. $SS_R$ and $SS_E$ are computed as follows:
 
 $$
-\begin{aligned}
-SS_R &= \sum_{i=1}^n(\hat{y_i} - \bar{y})^2 \\
-SS_E &= \sum_{i=1}^n(y_i - \hat{y_i})^2
-\end{aligned}
+\tag{1.20}
+SS_R = \sum_{i=1}^n(\hat{y_i} - \bar{y})^2
+$$
+
+$$
+\tag{1.21}
+SS_E = \sum_{i=1}^n(y_i - \hat{y_i})^2
 $$
 
 * We then compute the coefficient of determination $R^2$, which is interpreted as the proportion of variability in the response that is explained by our model: 
 
 $$
+\tag{1.22}
 R^2 = \frac{SS_R}{SS_T} = 1 - \frac{SS_E}{SS_T}
 $$
 
-Once we have acquired the coefficient of determination, we will conduct the test for model utility as follows:
-* Hypotheses: $H_0: \beta_1 = 0 | \beta_0$ versus $H_0: \beta_1 \neq 0 | \beta_0$. We can interpret $H_0$ as we are assuming that our model is as good as the intercept-only model.
+Once we have acquired the coefficient of determination $R^2$, we will conduct the test for model utility as follows:
+* Hypotheses: $H_0: \beta_1 = 0 | \beta_0$ versus $H_0: \beta_1 \neq 0 | \beta_0$ at the significant level $\alpha = 0.05$. We can interpret $H_0$ as we are assuming that our model is as good as the intercept-only model.
 * Test statistic: the test statistic follows the F-distribution with $1$ d.o.f. in the numerator and $n-2$ d.o.f. in the denominator, and it is given as:
 
 $$
+\tag{1.23}
 F_0 = \frac{SS_R/1}{SS_E/(n - 2)}=\frac{R^2}{(1-R^2)/(n -2)}  
 $$
 
-* Rejection criteria: We will reject $H_0$ when $F_0 >  f_{1-\alpha / 2,1,n-2}$.
+* Rejection criteria: We will reject $H_0$ when $F_0 >  f_{1-\alpha / 2,1,n-2}$, with $f_{1-\alpha / 2,1,n-2}$ is the upper critical value. Alternatively, we can reject $H_0$ if the corresponding p-value of the test statistic is less than than the significant level. The p-value for $F_0$ is given as:
+
+$$
+\tag{1.24}
+p(F_0) = 1 - \Phi(F_0)
+$$
 
 ### Example
 Here is a demo of how to construct a SLR model on a toy dataset using Python:
