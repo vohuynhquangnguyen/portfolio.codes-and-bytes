@@ -93,6 +93,7 @@ When constructing the SLR model, we underline the following crucial assumptions:
 * The errors have **equal variances** (homoscedastic). In other words, the variability in the response does not increase as the value of the predictor increases. 
 * The response is a random variable, while the predictor is a non-random variable.
 * There is **no presence of highly leveraged and/or highly influential observations**. In other words, there is no presence of outliers.
+* The constructed model has a high utility. In other words, there is no definitive presence of **lack of fit** in our model.
 
 ### Hypothesis test
 In the context of SLR, we use hypothesis tests as a holistic approach to (1) verify the validity of each assumption we made above, and (2) statistically check the utility of our model.
