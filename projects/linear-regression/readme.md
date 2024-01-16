@@ -14,14 +14,14 @@ The process of building a linear regression model involves the following steps:
 2. Collect the sample data.
 3. Use the sample data to estimate unknown parameters in the model.
 4. Specify the probability distribution of the error term, and estimate any unknown parameters of this distribution. Also, check the validity of each assumption made about the probability distribution. 
-5. Statistically check the usefulness of the model.
+5. Statistically check the usefulness of the model by verifying assumptions made when constructing the model.
 6. When satisfied that the model is useful, use it for prediction, estimation, and so on.
 
-In the following sections, we will delve into three core topics of linear regression: simple linear regression (SLR), multiple linear regression (MLR), and logistic regression (LR). Please note that the contents below are a summarized account of important points in linear regression. I strongly recommend you to consult the references for a rigorous treatment of the topics.
+In the following sections, we will delve into three core topics of linear regression: simple linear regression (SLR), multiple linear regression (MLR), and logistic regression (LR). Please note that the contents below are a summarized account of important points in linear regression. I strongly recommend you consult the references for a rigorous treatment of the topics.
 
 ## Simple Linear Regression (SLR) <a name = 'SLR'></a>
 ### Overview
-Suppose we want to model the monthly sales revenue $\mathbf{y}$ as a function of the advertising expenditure $\mathbf{x}$. One problem arises is that it is unlikely that we can predict the monthly sales exactly given the advertising expenditure. Hence, we propose a probabilistic model for sales revenue as follows:
+Suppose we want to model the monthly sales revenue $\mathbf{y}$ as a function of the advertising expenditure $\mathbf{x}$. One problem that arises is that it is unlikely that we can predict the monthly sales exactly given the advertising expenditure. Hence, we propose a probabilistic model for sales revenue as follows:
 
 $$
 \tag{1.1}
@@ -43,7 +43,7 @@ with:
 - $\mathbf{\hat{y}} = \beta_o + \beta_1\mathbf{x}$ is a column vector that represents the **deterministic component**;
 - $\pmb{\epsilon}$ is the **error component**;
 - $\beta_0$ is the **intercept** of the regression line;
-- $\beta_1$ is the  **slope** of the regression line. We can interpret it as the amount of increase or decrease in the mean of $\mathbf{y}$ for every unit increase in $\mathbf{x}$.
+- $\beta_1$ is the  **slope** of the regression line. We can interpret it as the increase or decrease in the mean of $\mathbf{y}$ for every unit increase in $\mathbf{x}$.
 
 From (1.2), we define the estimated SLR model, a.k.a. the fitted model, given the dataset as follows:
 
@@ -88,13 +88,13 @@ with $\bar{y}$ is the mean all responses in the dataset, and $\text{DOF}$ is the
 ### Assumptions
 When constructing the SLR model, we underline the following crucial assumptions:
 * The relationship between the predictor ($\mathbf{x}$) and the response ($\mathbf{y}$) is linear. In other words, there is a **linear association** between $\mathbf{x}$ and $\mathbf{y}$.
-* The errors, which are defined as the difference between the observed and the estimated values of the response $\epsilon_ i = y_i - \hat{y}_i$, are **independent and identically distributed**.
+* The errors, defined as the difference between the observed and the estimated values of the response $\epsilon_ i = y_i - \hat{y}_i$, are **independent and identically distributed**.
 * The errors are **normally distributed** with a mean of zero and a quantified standard deviation. In other words, $\pmb{\epsilon} \sim \mathcal{N}(0,\sigma^2)$.
 * The errors have **equal variances** (homoscedastic). In other words, the variability in the response does not increase as the value of the predictor increases. 
 * The response is a random variable, while the predictor is a non-random variable.
 * There is **no presence of highly leveraged and/or highly influential observations**. In other words, there is no presence of outliers.
-* The constructed model has a high utility. In other words, there is no definitive presence of **lack of fit** in our model.
-
+* The constructed model is statistically useful. In other words, there is no presence of the lack-of-fit in the model.
+  
 ### Hypothesis test
 In the context of SLR, we use hypothesis tests as a holistic approach to (1) verify the validity of each assumption we made above, and (2) statistically check the utility of our model.
 
@@ -149,14 +149,14 @@ $$
 
 with $\Phi(T_{\beta_1})$ is the cumulative distribution function of the test statistic $T_{\beta_1}$.
 
-* Confidence interval for $\beta_1$: the confidence interval is an interval where the true value of a parameter most likely lies if we repeat the estimation many times with different samples drawn from the same population. Hence, the $100(1-\alpha)\%$ confidence interval of the slope paramter, $\beta_1$, is given as:
+* Confidence interval for $\beta_1$: the confidence interval is an interval where the true value of a parameter most likely lies if we repeat the estimation many times with different samples drawn from the same population. Hence, the $100(1-\alpha)\%$ confidence interval of the slope parameter, $\beta_1$, is given as:
 
 ```math
 \tag{1.10}
 \text{CI}_{\beta_1} = \hat{\beta_1} \pm |t_{\alpha/2, n-2}|\sqrt{s^2 / S_{xx}}
 ```
 
-Moreover, we can conduct a hypothesis test on the the intercept as follows:
+Moreover, we can conduct a hypothesis test on the intercept as follows:
 * Hypotheses: $H_0: \beta_0 = 0$ versus $H_a: \beta_0 \neq 0$ at the significant level $\alpha = 0.05$.  We can interpret $H_0$ as follows: if $\beta_0$ is zero, the true regression line will pass through the origin.
 * Test statistic: the test statistic, likewise, follows the Studentized t-distribution with $n-2$ degree of freedom, and it is given as:
 
@@ -196,12 +196,12 @@ $$
 d_i = \frac{y_i - \hat{y}_i}{\sqrt{MSE}} = \frac{y_i - \hat{y}_i}{\sqrt{SS_E / (n-2)}} 
 $$
 
-with $MSE$ is the mean square error. If the standardized residuals fall approximately along a straight line, which represents the theoretical value from the hypothesized distribution $\mathcal{N}(0,\sigma^2)$, in the normality plot, we conclude that there is no severe departure from normality. We can also construct a histogram of standardized residuals to further assess whether the errors are normally distributed.
+with $MSE$ as the mean square error. If the standardized residuals fall approximately along a straight line, which represents the theoretical value from the hypothesized distribution $\mathcal{N}(0,\sigma^2)$, in the normality plot, we conclude that there is no severe departure from normality. We can also construct a histogram of standardized residuals to further assess whether the errors are normally distributed.
 
 To sum up, in practice we usually combine both the visual approach (constructing the normality plot) and the hypothesis test approach to validate this assumption.
 
 #### Homoscedasticity
-To validate whether our residuals are homoscedastic, we have two primary approaches: a visual approach or a hypothesis test approach. In the visual approach, we will construct either a residual-versus-fitted plot or a residual-versus-predictor plot. We outline the following characteristics of a well-behaved residual-versus-fitted plot, which also applicable for the residual-versus-predictor plot:  
+To validate whether our residuals are homoscedastic, we have two primary approaches: a visual approach and a hypothesis test approach. In the visual approach, we will construct either a residual-versus-fitted plot or a residual-versus-predictor plot. We outline the following characteristics of a well-behaved residual-versus-fitted plot, which is also applicable to the residual-versus-predictor plot:  
 * The residuals "bounce randomly" around the $\epsilon_i = 0$ line. This suggests that the assumption that the relationship is linear is reasonable.
 * The residuals roughly form a "horizontal band" around the $\epsilon_i = 0$ line. This suggests that the variances of the error terms are equal.
 * No one residual "stands out" from the basic random pattern of residuals. This suggests that there are no outliers.
@@ -234,10 +234,10 @@ $$
 
 with $\Phi(F_0)$ is the cumulative distribution function of the test statistic $F_0$.
 
-To sum up, similar to the normality of residuals assumption, in practice we will  combine both the visual approach (constructing the residuals-versus-fitted plot) and the hypothesis test approach to validate this assumption. 
+To sum up, similar to the normality of the residuals assumption, in practice, we will  combine both the visual approach (constructing the residuals-versus-fitted plot) and the hypothesis test approach to validate this assumption. 
 
 #### Leveraged and influential data points
-Ideally, the dataset that we used to construct our SLR model should not have any outliers, i.e., not having an extreme $x$ nd $y$ values. Nevertheless, if there are outliers presented in our dataset, we need to quantify their respective leverage and Cook's distance to determine whether these outliers are worth investigating.
+Ideally, the dataset that we used to construct our SLR model should not have any outliers, i.e., not having extreme $x$ and $y$ values. Nevertheless, if there are outliers presented in our dataset, we need to quantify their respective leverage and Cook's distance to determine whether these outliers are worth investigating.
 
 * **Leverage of a data point** is a measure of its ability to pull the regression line towards itself. The leverage of a data point depends entirely on its $x$-value: if the $x$-value of a data point  is far removed from the center of all $x$-values, then that data point will have a high leverage. In the context of SLR, a leverage of the $i$-th observation is given as:
 
@@ -255,10 +255,10 @@ D_i = \frac{(y_i-\hat{y}_{(i)})^2}{2\times\text{MSE}} \Bigg[\frac{h_{ii}}{(1-h_{
 
 An observation with the Cook's distance larger than three times the mean Cook's distance might be an outlier.  As a rule of thumb, if $D_i$  is greater than 0.5, then the $i$-th data point is worthy of further investigation as it may be influential. If $D_i$ is greater than 1, then the $i$-th data point is quite likely to be influential. If $D_i$ stands out from the other Cook's distance values in addition to being greater than 1, it is almost certainly influential.
 
-To sum up, in practice we usually construct two scatter plots namely the standardized-residuals-versus-fitted plot and the Cook's-distance-versus-leverage plot to identify which data point is potentially an outlier with high influential. 
+To sum up, in practice we usually construct two scatter plots namely the standardized-residuals-versus-fitted plot and the Cook's-distance-versus-leverage plot to identify which data point is potentially an outlier with high influence. 
 
 #### Utility of the model
-In the context of linear regression, the utility of a model is the significance of regression. In other words, it represents how well our model describes the relationship between the response and the predictor. As mentioned above, to test the significance of regression in the context of SLR, we conduct the t-test on the slope parameter and/or the test on the correlaition coefficient. In addition to these two tests, a general approach is to conduct the analysis of variance (ANOVA). The ANOVA consists of the following steps:
+In the context of linear regression, the utility of a model is the significance of regression. In other words, it represents how well our model describes the relationship between the response and the predictor. As mentioned above, to test the significance of regression in the context of SLR, we conduct the t-test on the slope parameter and/or the test on the correlation coefficient. In addition to these two tests, a general approach is to analyze variance (ANOVA). The ANOVA consists of the following steps:
 * We first partition the total variability in the response variable $\mathbf{y}$ into two meaningful components:
   
 $$
@@ -300,6 +300,9 @@ $$
 \tag{1.24}
 p(F_0) = 1 - \Phi(F_0)
 $$
+
+To sum up, to evaluate the significance of regression, we conduct the F-test to determine whether our model is statistically useful. 
+
 
 ### Example
 Here is a demo of how to construct a SLR model on a toy dataset using Python:
